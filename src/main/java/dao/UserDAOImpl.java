@@ -49,6 +49,8 @@ public class UserDAOImpl implements UserDAO {
 			customer.setUsername(userName);
 			
 		}
+	   	 
+	   	 connection.close();
 	   	} catch (Exception e) {
 			// TODO: handle exception
 		}
