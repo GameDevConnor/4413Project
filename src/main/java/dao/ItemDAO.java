@@ -7,9 +7,9 @@ import model.User;
 
 public interface ItemDAO {
 	
-	public List<User> findAllItems();
+	public List<Item> findAllItems();
 	
-	public User searchItemsByKeyword(String item);
+	public List<Item> searchItemByKeywords(String item);
 	
 	public void insert(Item item);
 	
