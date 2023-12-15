@@ -200,7 +200,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public void delete(Long username) {
+	public void delete(String username) {
 		// TODO Auto-generated method stub
 		try {
 
@@ -209,8 +209,8 @@ public class UserDAOImpl implements UserDAO {
 			
 		   	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
 			PreparedStatement statement = connection
-					.prepareStatement("delete from customer where username=?");
-			statement.setLong(1, username);
+					.prepareStatement("delete from customer where username='?'");
+			statement.setString(1, username);
 			statement.execute();
 			
 			connection.close();

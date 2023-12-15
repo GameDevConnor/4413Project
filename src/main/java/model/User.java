@@ -11,6 +11,18 @@ public class User {
 	String lastName;
 	Address address;
 	
+	public User(String username, String password, List<Item> purchases, String firstName, String lastName,
+			Address address) {
+		
+		this.username = username;
+		this.password = password;
+		this.purchases = purchases;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+	}
+
+
 	public Address getAddress() {
 		return address;
 	}
