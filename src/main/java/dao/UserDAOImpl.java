@@ -14,7 +14,62 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public List<User> findAllUsers() {
 		// TODO Auto-generated method stub
-		return null;
+		List<User> users = new ArrayList<User>();
+		
+		String queryString = "select * from customer join address on customer.addressID = address.id;";
+	   	System.out.println(queryString);
+
+	   	
+	   	 try {
+				
+	   	 Class.forName("com.mysql.cj.jdbc.Driver");
+	   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
+	   	 
+	   	 java.sql.Statement statement = connection.createStatement();
+	   	 
+	   	 ResultSet resultSet = statement.executeQuery(queryString);
+	   	
+	   	 
+	   	 while (resultSet.next()) {
+			String userName = resultSet.getString("username");
+			String firstName = resultSet.getString("firstName");
+			String lastName = resultSet.getString("lastName");
+			String password = resultSet.getString("password");
+			
+			User customer = new User();
+			
+			customer.setFirstName(firstName);
+			customer.setLastName(lastName);
+			customer.setUsername(userName);
+			customer.setPassword(password);
+			
+			String street = resultSet.getString("street");
+			String province = resultSet.getString("province");
+			String country = resultSet.getString("country");
+			String zip = resultSet.getString("zip");
+			String phone = resultSet.getString("phone");
+			
+			Address address = new Address(street, province, country, zip, phone);
+			
+			customer.setAddress(address);
+
+
+			users.add(customer);
+			
+			
+		}
+
+	   	
+	   	 
+	   	 
+	   	 connection.close();
+	   	} catch (Exception e) {
+			// TODO: handle exception
+		}
+	   	
+		
+		
+		return users;
 	}
 
 	@Override
