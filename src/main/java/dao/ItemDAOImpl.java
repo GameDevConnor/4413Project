@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,7 +108,10 @@ public class ItemDAOImpl implements ItemDAO {
 
 				
 				result.add(item);
+				
 			}
+			
+			connection.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -116,9 +120,44 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 
 	@Override
-	public void insert(Item item) {
+	public void insert(Item item, int quantity) {
 		// TODO Auto-generated method stub
 		
+		String itemqueryString = "select id from item where id = '" + item.getId() + "'";
+		itemqueryString += ";";
+	   	System.out.println(itemqueryString);
+		
+	
+		
+	   	 try {
+				
+	   	 Class.forName("com.mysql.cj.jdbc.Driver");
+	   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
+	   	 
+	   	 java.sql.Statement statement = connection.createStatement();
+	   	 
+		 ResultSet resultSet = statement.executeQuery(itemqueryString);
+		 
+		 if (resultSet.next()) {
+			
+			String updateQuery = "update item set quantity = quantity " + quantity + " where id = '" + item.getId() + "';";
+		   		
+		   	Statement updateStatement = connection.createStatement();
+			   	 
+			int updateResultSet = updateStatement.executeUpdate(updateQuery);
+             
+		 }
+		 else {
+			 
+			 
+			 
+		 }
+
+	   	 
+	   	 connection.close();
+	   	} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 	@Override

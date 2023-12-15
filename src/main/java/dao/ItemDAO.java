@@ -11,7 +11,7 @@ public interface ItemDAO {
 	
 	public List<Item> searchItemByKeywords(String item);
 	
-	public void insert(Item item);
+	public void insert(Item item, int quantity);
 	
 	public void delete(String itemID);
 	
