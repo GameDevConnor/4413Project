@@ -8,7 +8,19 @@ public class User {
 	String password;
 	List<Item> purchases;
 	String firstName;
+	String lastName;
+	Address address;
 	
+	public Address getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -27,9 +39,6 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-
-	String lastName;
 	
 	
 	public User () {

@@ -19,7 +19,9 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User searchUsersByKeyword(String user) {
 		// TODO Auto-generated method stub
-	   	 String queryString = "select * from customer where user = '" + user + "'";
+//	   	 String queryString = "select * from customer where user = '" + user + "'";
+	   	 String queryString = "select * from customer, address where customer.addressID = address.id and exists (select * from customer where username = '" + user + "')";
+
 	   	
 	   	 queryString += ";";
 	   	 System.out.println(queryString);
@@ -31,16 +33,15 @@ public class UserDAOImpl implements UserDAO {
 	   	 try {
 			
 	   	 Class.forName("com.mysql.cj.jdbc.Driver");
-	   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lab6","root","EECS4413");
+	   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
 	   	 
 	   	 java.sql.Statement statement = connection.createStatement();
 	   	 
 	   	 ResultSet resultSet = statement.executeQuery(queryString);
 	   	
-	   	 		
 	   	 
 	   	 while (resultSet.next()) {
-			String userName = resultSet.getString("user");
+			String userName = resultSet.getString("username");
 			String firstName = resultSet.getString("firstName");
 			String lastName = resultSet.getString("lastName");
 			
@@ -48,7 +49,11 @@ public class UserDAOImpl implements UserDAO {
 			customer.setLastName(lastName);
 			customer.setUsername(userName);
 			
+			
 		}
+
+	   	
+	   	 
 	   	 
 	   	 connection.close();
 	   	} catch (Exception e) {
