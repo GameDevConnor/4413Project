@@ -12,6 +12,6 @@ public interface UserDAO {
 		
 		public void insert(User user);
 		
-		public void delete(Long userId);
+		public void delete(String username);
 		
 }
