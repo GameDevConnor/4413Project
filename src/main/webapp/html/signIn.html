@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="../css/signInStyle.css" type="text/css" />
+	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	<script src="../js/signIn.js"></script>
+	<title>Home - Sign in</title>
+</head>
+
+<body>
+	<!--  <jsp:include page="header.jsp" flush="true" /> -->
+	<header>
+		<h3>Find Your Dream Product</h3>	
+	</header>
+	
+	<section>
+	<fieldset>
+		<legend>Sign In To Start Shopping</legend>
+		<article>
+			<!-- <form action="" method="post" class='signinForm' name="signinForm" onsubmit="return validate()"> -->
+			<form class='signinForm' name="signinForm" onsubmit="return validate()">
+				
+			<b><label for="username">Username: </label></b>
+			<input id='username' name='username' type="text"><br/>
+	
+			<b><label for="password">Password: </label></b>
+			<input id='password' name='password' type="password"/><br/>
+	
+			<br/>
+	 		<button type="submit">Sign In</button>  
+			</form>
+		</article>
+	</fieldset>
+	</section>
+	
+	<footer>
+	<aside>
+		<h5><strong><i>York University - EECS 4413 Project</i></strong></h5>
+		
+	</aside>
+	</footer>
+	
+</body>
+</html>
