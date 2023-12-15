@@ -2,7 +2,9 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +20,7 @@ public class UserDAOImpl implements UserDAO {
 		
 		String queryString = "select * from customer join address on customer.addressID = address.id;";
 	   	System.out.println(queryString);
-
+	   	
 	   	
 	   	 try {
 				
@@ -139,11 +141,83 @@ public class UserDAOImpl implements UserDAO {
 	public void insert(User user) {
 		// TODO Auto-generated method stub
 		
+		
+		String addressqueryString = "select id from address where address.street = '" + user.getAddress().getStreet() + "' and address.province = " + "'" + user.getAddress().getProvince() + "' and address.country = '" + user.getAddress().getCountry() + "' and address.zip = '" + user.getAddress().getZip() +"' and address.phone = '" + user.getAddress().getPhone() + "'";
+		addressqueryString += ";";
+	   	System.out.println(addressqueryString);
+		
+	
+		
+	   	 try {
+				
+	   	 Class.forName("com.mysql.cj.jdbc.Driver");
+	   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
+	   	 
+	   	 java.sql.Statement statement = connection.createStatement();
+	   	 
+		 ResultSet resultSet = statement.executeQuery(addressqueryString);
+
+	   	 
+		 int address = 0;
+	   
+		 while (resultSet.next()) {
+			 address = resultSet.getInt("id");
+			 
+			}
+		 
+		 if (address == 0) {
+			 String getMaxAddress = "select id from address;";
+			 ResultSet maxAddressResultSet = statement.executeQuery(getMaxAddress);
+
+			 int maxAddress = 1;
+			 
+			 while (maxAddressResultSet.next()) {
+				 	maxAddress = resultSet.getInt("id");
+				 
+				}
+			 
+			 
+			 String addAddress = "insert into address values (" + maxAddress + 1 + "," + user.getAddress().getStreet() + "," + user.getAddress().getProvince() + "," + user.getAddress().getCountry() + "," + user.getAddress().getZip() + user.getAddress().getPhone() + ");";
+			 int insertResultSetAddress = statement.executeUpdate(addAddress);
+
+			 
+		 }
+		 
+		 
+			String queryString = "insert into customer values (" + user.getUsername() + "," + user.getPassword() + "," + user.getFirstName() + "," + user.getLastName() + "," + address + ")";
+			queryString += ";";
+		   	System.out.println(queryString);
+			int insertResultSetCustomer = statement.executeUpdate(queryString);
+
+	   	
+	   	 
+	   	 
+	   	 connection.close();
+	   	} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 	}
 
 	@Override
-	public void delete(Long userId) {
+	public void delete(Long username) {
 		// TODO Auto-generated method stub
+		try {
+
+
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+		   	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
+			PreparedStatement statement = connection
+					.prepareStatement("delete from customer where username=?");
+			statement.setLong(1, username);
+			statement.execute();
+			
+			connection.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 
