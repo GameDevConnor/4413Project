@@ -11,6 +11,9 @@ function validate() {
         return false;
     } // check if the Password field is missing
 
-    document.forms["signinForm"].action="signUp.html";
+	// Servlet: check credentials in DB and update the action
+    //document.forms["signinForm"].action="signUp.html";
+    document.forms["signinForm"].action="jsp/shoppingMain.jsp";
+    document.forms["signinForm"].method="post";
 
   }  // validate various form components

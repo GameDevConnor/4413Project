@@ -43,7 +43,7 @@ legend {
 	font-size: 125%;
 	padding-left: 1em;
 	padding-right: 1em;
-	background:rgb(140, 0, 255);
+	background:#777da6;
 	color: #fff;
 }
 
@@ -106,7 +106,7 @@ p {
 } 
 
 .signUpForm button {
-	background:rgb(140, 0, 255);
+	background:#777da6;
 	color: white;
 	border: none;
 	padding: 1em;
