@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+body {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	padding-top: 10px;
+}
+
+header {
+	padding:16px;
+	text-align:center;
+	font-weight:bold;
+	font-size:2.0rem;
+}
+ 
+article {
+	padding:5px;
+	margin-top:5px;
+}
+
+aside {
+	margin-top:5px;
+	background-color:white;
+	padding:5px;
+	text-align:center;
+	font-style:italic;
+}
+
+section {
+	padding:5px;
+	margin-top:5px;
+}
+
+footer {
+	padding:5px;
+	text-align:center;
+	font-weight:bold;
+}
+
+legend {
+	font-size: 125%;
+	padding-left: 1em;
+	padding-right: 1em;
+	background:rgb(140, 0, 255);
+	color: #fff;
+}
+
+.signUpForm {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	background: #eee;
+}
+ 
+
+.sec1 {
+	grid-column-start: 1;
+	grid-column-end: 1;
+	grid-row-start: 1;
+	grid-row-end: 1;
+}
+
+.sec2 {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 2;
+}
+
+.sec3 {
+	grid-column-start: 1;
+	grid-column-end: 1;
+	grid-row-start: 3;
+	grid-row-end: 3;
+}
+
+.sec4 {
+	grid-column-start: 2;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 4;
+}
+
+.sec5 {
+	grid-column-start: 2;
+	grid-column-end: 2;
+	grid-row-start: 4;
+	grid-row-end: 4;
+}
+
+.infoForm label {
+	grid-column: labels;
+	padding: .5em 1em;
+}
+
+p {
+    display: flex;
+}
+
+.infoForm input {
+	grid-column: controls;
+	border: none;
+	padding: 0.5em;
+	flex: 1;
+} 
+
+.infoForm button {
+	background:rgb(140, 0, 255);
+	color: white;
+	border: none;
+	padding: 1em;
+}
