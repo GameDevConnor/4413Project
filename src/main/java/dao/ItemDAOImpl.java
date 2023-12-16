@@ -142,7 +142,7 @@ public class ItemDAOImpl implements ItemDAO {
 		 
 		 if (resultSet.next()) {
 			
-			String updateQuery = "update item set quantity = quantity " + quantity + " where id = '" + item.getId() + "';";
+			String updateQuery = "update item set quantity = quantity +" + quantity + " where id = '" + item.getId() + "';";
 		   		
 		   	Statement updateStatement = connection.createStatement();
 			   	 
@@ -190,7 +190,7 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 
 	@Override
-	public void purchase(Item item, User user) {
+	public void purchase(Item item, User user, int quantity) {
 		// TODO Auto-generated method stub
 		
 		String queryString = "select id from PO;";
@@ -223,6 +223,12 @@ public class ItemDAOImpl implements ItemDAO {
 	   	 
 		 int insertResultSet = insertStatement.executeUpdate(insertItemQueryString);
 	   	
+		 
+		 String updateQuery = "update item set quantity = quantity -" + quantity + " where id = '" + item.getId() + "';";
+	   		
+		 Statement updateStatement = connection.createStatement();
+			   	 
+		 int updateResultSet = updateStatement.executeUpdate(updateQuery);
 	   	 
 	   	 
 	   	 connection.close();
