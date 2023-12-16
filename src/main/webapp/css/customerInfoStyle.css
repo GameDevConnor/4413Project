@@ -48,26 +48,26 @@ legend {
 }
 
 .infoForm {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	/*display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));*/
 	background: #eee;
 }
- 
+
+.parallel{
+	display: grid;
+	grid-template-columns: repeat(2, minmax(250px, 1fr));
+} 
 
 .sec1 {
 	grid-column-start: 1;
 	grid-column-end: 1;
-	grid-row-start: 1;
-	grid-row-end: 1;
 }
 
 .sec2 {
 	grid-column-start: 2;
 	grid-column-end: 2;
-	grid-row-start: 1;
-	grid-row-end: 1;
 }
-
+/*
 .sec3 {
 	grid-column-start: 1;
 	grid-column-end: 1;
@@ -96,7 +96,7 @@ legend {
 	grid-row-start: 7;
 	grid-row-end: 7;
 }
-
+*/
 .infoForm label {
 	grid-column: labels;
 	padding: .5em 1em;

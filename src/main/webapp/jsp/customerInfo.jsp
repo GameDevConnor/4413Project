@@ -23,6 +23,7 @@
 		
 		<form class='infoForm' name="infoForm" onsubmit="return validate()">
 
+		<div class="parallel">
 		<section class="sec1">
 		<h2>Login Info</h2>
 		<p>
@@ -30,7 +31,7 @@
 		</p>
 		<p>
 			<b><label for="password">Password: *</label></b>
-			<input id='password' name='password' type="text" value=${user.password} required/> 
+			<input id='password' name='password' type="text" value=${user.password} required> 
 		</p>
 		</section>
 		
@@ -45,7 +46,7 @@
             <input id='lastname' name='lastname' type="text" value=${user.lastName} required> 
 		</p>
 		</section>
-
+		</div>
 <!-- 
 		<section class="sec3">
 		<!-- Section for Credit card. Assume one card per customer. 
@@ -91,7 +92,7 @@
 		</p>
 		<p>
 			<b><label for="phone">Phone: </label></b>
-			<input id='phone' name='phone' type="number" maxlength="10" value=${user.address.phone} />
+			<input id='phone' name='phone' type="text" maxlength="12" value=${user.address.phone} />
 		</p>
 		</section>
 		
