@@ -79,8 +79,8 @@ public class UserDAOImpl implements UserDAO {
 	public User searchUsersByKeyword(String user) {
 		// TODO Auto-generated method stub
 //	   	 String queryString = "select * from customer where user = '" + user + "'";
-	   	 String queryString = "select * from customer, address where customer.addressID = address.id and exists (select * from customer where username = '" + user + "')";
-
+//	   	 String queryString = "select * from customer, address where customer.addressID = address.id and exists (select * from customer where username = '" + user + "')";
+		 String queryString = "select * from customer, address where username = '" + user + "' and customer.addressID = address.id";
 	   	
 	   	 queryString += ";";
 	   	 System.out.println(queryString);
@@ -99,7 +99,7 @@ public class UserDAOImpl implements UserDAO {
 	   	 ResultSet resultSet = statement.executeQuery(queryString);
 	   	
 	   	 
-	   	 resultSet.next();
+	   	resultSet.next();
 	   	 
 		String userName = resultSet.getString("username");
 		String firstName = resultSet.getString("firstName");
@@ -120,8 +120,8 @@ public class UserDAOImpl implements UserDAO {
 		Address address = new Address(street, province, country, zip, phone);
 		
 		customer.setAddress(address);	   	
-	   	 
-	   	 
+		System.out.println("current user: " + userName); 
+	   	
 	   	 connection.close();
 	   	} catch (Exception e) {
 			// TODO: handle exception
