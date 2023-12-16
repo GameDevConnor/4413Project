@@ -168,6 +168,22 @@ public class ItemDAOImpl implements ItemDAO {
 	public void delete(String itemID) {
 		// TODO Auto-generated method stub
 		
+		try {
+
+
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+		   	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
+			PreparedStatement statement = connection
+					.prepareStatement("delete from item where id='?'");
+			statement.setString(1, itemID);
+			statement.execute();
+			
+			connection.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }
