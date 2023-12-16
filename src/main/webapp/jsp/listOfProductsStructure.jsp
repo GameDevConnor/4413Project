@@ -17,12 +17,12 @@
 
 		<jsp:include page="header.jsp" flush="true" />
 		<br />
-		<jsp:include page="leftColumn.jsp" flush="true" />
+		<jsp:include page="leftColumnForProducts.jsp" flush="true" />
 		<div>
 			<span class="label" style="margin-left: 15px;">List of All Products</span>
 		</div>
 
-		<jsp:include page="list.jsp" flush="true" />
+		<jsp:include page="listOfProducts.jsp" flush="true" />
 
 
 	</div>

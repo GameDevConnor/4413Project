@@ -67,15 +67,15 @@ table tr td,th {
 	padding: 2px;
 }
 
-#th-name {
-	width: 350px;
+#th-username {
+	width: 300px;
 }
 
-#th-brand, #th-category {
+#th-password, #th-firstName, #th-lastName {
 	width: 200px;
 }
 
-#th-price, #th-qty {
+#th-button {
 	width: 100px;
 }
 

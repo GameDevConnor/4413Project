@@ -26,17 +26,16 @@ public class UserDAOImpl implements UserDAO {
 				
 	   	 Class.forName("com.mysql.cj.jdbc.Driver");
 	   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
-	   	 
+	   	
 	   	 java.sql.Statement statement = connection.createStatement();
 	   	 
 	   	 ResultSet resultSet = statement.executeQuery(queryString);
-	   	
 	   	 
 	   	 while (resultSet.next()) {
 			String userName = resultSet.getString("username");
 			String firstName = resultSet.getString("firstName");
 			String lastName = resultSet.getString("lastName");
-			String password = resultSet.getString("password");
+			String password = resultSet.getString("pass");
 			
 			User customer = new User();
 			
@@ -67,6 +66,8 @@ public class UserDAOImpl implements UserDAO {
 	   	 connection.close();
 	   	} catch (Exception e) {
 			// TODO: handle exception
+	   		e.printStackTrace();
+//			System.out.println(e);
 		}
 	   	
 		
@@ -102,7 +103,7 @@ public class UserDAOImpl implements UserDAO {
 			String userName = resultSet.getString("username");
 			String firstName = resultSet.getString("firstName");
 			String lastName = resultSet.getString("lastName");
-			String password = resultSet.getString("password");
+			String password = resultSet.getString("pass");
 			
 			customer.setFirstName(firstName);
 			customer.setLastName(lastName);

@@ -18,7 +18,7 @@
 
 		<jsp:include page="header.jsp" flush="true" />
 		<br />
-		<jsp:include page="leftColumn.jsp" flush="true" />
+		<jsp:include page="leftColumnForProducts.jsp" flush="true" />
 		<span class="label" style="margin-left: 15px;">Featured Products</span>
 		<table >
 			<tr>

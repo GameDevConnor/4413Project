@@ -22,8 +22,8 @@
 	<div id="centered">
 		<jsp:include page="header.jsp" flush="true" />
 		<br />
-		<jsp:include page="leftColumn.jsp" flush="true" />
-		<jsp:include page="list.jsp" flush="true" />
+		<jsp:include page="leftColumnForProducts.jsp" flush="true" />
+		<jsp:include page="listOfProducts.jsp" flush="true" />
 		
  
 	</div>

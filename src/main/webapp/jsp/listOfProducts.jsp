@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html >
 <html>
@@ -10,8 +10,8 @@
 <body>
  
 	<div>
-		<c:if test="${param.category != null}" > 
-		<span class="label" style="margin-left: 15px;"> List of ${param.category}  Products
+		<c:if test="${param.item != null}" > 
+		<span class="label" style="margin-left: 15px;"> List of ${param.item}  Products
 		</span>
 		</c:if>
 	</div>
