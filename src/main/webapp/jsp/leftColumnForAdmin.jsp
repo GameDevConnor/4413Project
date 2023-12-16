@@ -15,7 +15,7 @@
 			</a>
 		</div></li>
 		<li><div>
-			<a class="link1" href="../${initParam.paramC}">
+			<a class="link1" href="${initParam.paramC}?action=allUsers">
 				<span style="margin-left: 15px;" class="label">All Users</span>
 			</a>
 		</div></li>
@@ -28,13 +28,13 @@
 			<span class="label" style="margin-left: 15px;">All Products</span></a>
 		</div></li>
 	</ul>
-	<form class="search">
-		Search: <input type="hidden" name="action" value="search" /> <input id="text"
+<!-- 	<form class="search">
+		SearchUser: <input type="hidden" name="action" value="searchUser" /> <input id="text"
 			type="text" name="keyWord" size="12" /> <span
 			class="tooltip_message">?</span>
 		<p />
 		<input id="submit" type="submit" value="Search" />
-	</form>
+	</form> -->
 
 
 </div>

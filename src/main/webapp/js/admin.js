@@ -22,7 +22,8 @@
 
 $(document).ready(function () {
 	  $("span.tooltip_message").hover(function () {
-	    $(this).append('<div class="message"><p>Search by Keyword in:<ul><li>User Name</li><li>Product Name<li>Purchase History</li></ul></p></div>');
+/** $(this).append('<div class="message"><p>Search by Keyword in:<ul><li>User Name</li><li>Product Name<li>Purchase History</li></ul></p></div>');*/
+		$(this).append('<div class="message"><p>Search a user with:<ul><li>User Name</li></p></div>'); 
 	  },function () {
 	    $("div.message").remove();
 	  });/*
