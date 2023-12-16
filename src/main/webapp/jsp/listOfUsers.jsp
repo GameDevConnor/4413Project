@@ -34,11 +34,14 @@
  			    <td>${user.password}</td>
 			    <td>${user.firstName}</td>
 			    <td>${user.lastName}</td>
-			    <td><form method='get' action="customers?action=update">
+			    <td><!-- <form method='get' action="${initParam.paramC}?action=update">
 			    	<input type='hidden' size='3' name='todo' value='update'> 
-			    	<input type='hidden' size='3' name='id' value='" + ${user.username} + "'>
+			    	<input type='hidden' size='3' name='username' value='" + ${user.username} + "'> 
+			    	</form>-->
+			    	<a href="${initParam.paramC}?action=update&username=${user.username}">
 			    	<input type="submit" value=Review/Update />
-		    	</form></td> 
+			    	</a>
+		    	</td> 
 			</tr>   
            </c:forEach>
 		</tbody>

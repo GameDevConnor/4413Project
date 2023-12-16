@@ -99,33 +99,27 @@ public class UserDAOImpl implements UserDAO {
 	   	 ResultSet resultSet = statement.executeQuery(queryString);
 	   	
 	   	 
-	   	 while (resultSet.next()) {
-			String userName = resultSet.getString("username");
-			String firstName = resultSet.getString("firstName");
-			String lastName = resultSet.getString("lastName");
-			String password = resultSet.getString("pass");
-			
-			customer.setFirstName(firstName);
-			customer.setLastName(lastName);
-			customer.setUsername(userName);
-			customer.setPassword(password);
-			
-			String street = resultSet.getString("street");
-			String province = resultSet.getString("province");
-			String country = resultSet.getString("country");
-			String zip = resultSet.getString("zip");
-			String phone = resultSet.getString("phone");
-			
-			Address address = new Address(street, province, country, zip, phone);
-			
-			customer.setAddress(address);
-
-
-			
-			
-		}
-
-	   	
+	   	 resultSet.next();
+	   	 
+		String userName = resultSet.getString("username");
+		String firstName = resultSet.getString("firstName");
+		String lastName = resultSet.getString("lastName");
+		String password = resultSet.getString("pass");
+		
+		customer.setFirstName(firstName);
+		customer.setLastName(lastName);
+		customer.setUsername(userName);
+		customer.setPassword(password);
+		
+		String street = resultSet.getString("street");
+		String province = resultSet.getString("province");
+		String country = resultSet.getString("country");
+		String zip = resultSet.getString("zip");
+		String phone = resultSet.getString("phone");
+		
+		Address address = new Address(street, province, country, zip, phone);
+		
+		customer.setAddress(address);	   	
 	   	 
 	   	 
 	   	 connection.close();

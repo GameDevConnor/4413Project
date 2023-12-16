@@ -49,7 +49,7 @@ legend {
 
 .infoForm {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	background: #eee;
 }
  
@@ -62,10 +62,10 @@ legend {
 }
 
 .sec2 {
-	grid-column-start: 1;
+	grid-column-start: 2;
 	grid-column-end: 2;
-	grid-row-start: 2;
-	grid-row-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 1;
 }
 
 .sec3 {
@@ -76,17 +76,25 @@ legend {
 }
 
 .sec4 {
-	grid-column-start: 2;
+	grid-column-start: 1;
 	grid-column-end: 2;
 	grid-row-start: 2;
 	grid-row-end: 4;
 }
 
 .sec5 {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 5;
+	grid-row-end: 6;
+}
+
+
+.sec6 {
 	grid-column-start: 2;
 	grid-column-end: 2;
-	grid-row-start: 4;
-	grid-row-end: 4;
+	grid-row-start: 7;
+	grid-row-end: 7;
 }
 
 .infoForm label {
