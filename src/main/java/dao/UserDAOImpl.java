@@ -80,8 +80,8 @@ public class UserDAOImpl implements UserDAO {
 	public User searchUsersByKeyword(String user) {
 		// TODO Auto-generated method stub
 //	   	 String queryString = "select * from customer where user = '" + user + "'";
-	   	 String queryString = "select * from customer, address where customer.addressID = address.id and exists (select * from customer where username = '" + user + "')";
-
+//	   	 String queryString = "select * from customer, address where customer.addressID = address.id and exists (select * from customer where username = '" + user + "')";
+		 String queryString = "select * from customer, address where username = '" + user + "' and customer.addressID = address.id";
 	   	
 	   	 queryString += ";";
 	   	 System.out.println(queryString);
@@ -100,35 +100,29 @@ public class UserDAOImpl implements UserDAO {
 	   	 ResultSet resultSet = statement.executeQuery(queryString);
 	   	
 	   	 
-	   	 while (resultSet.next()) {
-			String userName = resultSet.getString("username");
-			String firstName = resultSet.getString("firstName");
-			String lastName = resultSet.getString("lastName");
-			String password = resultSet.getString("pass");
-			
-			customer.setFirstName(firstName);
-			customer.setLastName(lastName);
-			customer.setUsername(userName);
-			customer.setPassword(password);
-			
-			String street = resultSet.getString("street");
-			String province = resultSet.getString("province");
-			String country = resultSet.getString("country");
-			String zip = resultSet.getString("zip");
-			String phone = resultSet.getString("phone");
-			
-			Address address = new Address(street, province, country, zip, phone);
-			
-			customer.setAddress(address);
-
-
-			
-			
-		}
-
+	   	resultSet.next();
+	   	 
+		String userName = resultSet.getString("username");
+		String firstName = resultSet.getString("firstName");
+		String lastName = resultSet.getString("lastName");
+		String password = resultSet.getString("pass");
+		
+		customer.setFirstName(firstName);
+		customer.setLastName(lastName);
+		customer.setUsername(userName);
+		customer.setPassword(password);
+		
+		String street = resultSet.getString("street");
+		String province = resultSet.getString("province");
+		String country = resultSet.getString("country");
+		String zip = resultSet.getString("zip");
+		String phone = resultSet.getString("phone");
+		
+		Address address = new Address(street, province, country, zip, phone);
+		
+		customer.setAddress(address);	   	
+		System.out.println("current user: " + userName); 
 	   	
-	   	 
-	   	 
 	   	 connection.close();
 	   	} catch (Exception e) {
 			// TODO: handle exception

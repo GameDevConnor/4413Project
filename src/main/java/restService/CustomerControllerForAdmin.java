@@ -34,7 +34,7 @@ public class CustomerControllerForAdmin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String base = "/jsp/";
-		String url = base + "listOfUsersStructure.jsp";
+		String url = base + "adminMain.jsp";
 		String action = request.getParameter("action");
 		String userName = request.getParameter("username");
 		String category = request.getParameter("PH");
@@ -47,8 +47,9 @@ public class CustomerControllerForAdmin extends HttpServlet {
 				url = base + "listOfUsersStructure.jsp";
 				break;
 			case "update": {
-				searchUsersByKeyword(request, response, userName);
-				url = "customerInfo.jsp";
+				System.out.println("update " + userName);
+				searchUsersByKeyword(request, response, userName);				
+				url = base + "customerInfo.jsp";
 				break;
 			}
 //			case "allPH":
