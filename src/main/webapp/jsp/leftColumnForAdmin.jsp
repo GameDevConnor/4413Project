@@ -10,7 +10,7 @@
 <div class="leftbar">
 	<ul id="menu">
 		<li><div>
-			<a class="link1" href="../${initParam.paramC}"> 
+			<a class="link1" href="adminMain.jsp"> 
 				<span class="label" style="margin-left: 15px;">Home</span>
 			</a>
 		</div></li>

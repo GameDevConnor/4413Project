@@ -16,7 +16,7 @@ body {
 .header {
 	height: 79px;
 	color: #f9f3e9;
-	background: #777da6;
+	background: rgb(192, 196, 214);
 }
 
 .label {
@@ -30,7 +30,7 @@ body {
 	height: 310px;
 	width: 150px;
 	background: #FFFFFF;
-	border: 1px solid #777da6;
+	border: 1px solid rgb(192, 196, 214);
 }
 
 .search {
@@ -49,7 +49,7 @@ table thead tr {
 table thead tr th {
 	margin: 0px;
 	padding: 2px;
-	background-color: #777da6;
+	background-color: rgb(192, 196, 214);
 }
 
 table tr {
@@ -59,9 +59,13 @@ table tr {
 	background-color: white;
 }
 
+tr:nth-child(even){
+	background-color: rgb(192, 196, 214);
+}
+/*
 table tr.classEven {
 	background-color: #777da6;
-}
+}*/
 
 table tr td,th {
 	padding: 2px;
@@ -78,10 +82,10 @@ table tr td,th {
 #th-button {
 	width: 100px;
 }
-
+/*
 .classEven {
 	background-color: #777da6;
-}
+}*/
 
 a:link {
 	font-family: arial, monospace;
@@ -147,7 +151,7 @@ div.message {
 
 #menu li {
 	display: block;
-	background-color: #777da6;
+	background-color: rgb(192, 196, 214);
 	font-weight: bold;
 	font-family: "Calibri", Georgia, Serif;
 	color: white;
