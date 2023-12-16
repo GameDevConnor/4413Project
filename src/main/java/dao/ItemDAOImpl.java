@@ -149,7 +149,11 @@ public class ItemDAOImpl implements ItemDAO {
 		 }
 		 else {
 			 
+			 String insertItemQueryString = "insert into item values ('" + item.getId() + "','" + item.getName() + "','" + item.getDescription() + "','" + item.getCategory() + "','" + item.getBrand() + "'," + item.getQuantity() + "," + item.getPrice() + ");";
 			 
+			 Statement insertStatement = connection.createStatement();
+		   	 
+			 int insertResultSet = insertStatement.executeUpdate(insertItemQueryString);
 			 
 		 }
 
