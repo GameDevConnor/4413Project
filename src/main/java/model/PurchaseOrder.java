@@ -18,6 +18,15 @@ public class PurchaseOrder {
 		this.id = id;
 		this.user = user;
 		this.item = item;
+		dateOfCreation = new Date();
+	}
+
+	public Date getDateOfCreation() {
+		return dateOfCreation;
+	}
+
+	public void setDateOfCreation(Date dateOfCreation) {
+		this.dateOfCreation = dateOfCreation;
 	}
 
 	public int getId() {

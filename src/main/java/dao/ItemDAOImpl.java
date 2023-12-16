@@ -11,6 +11,7 @@ import java.util.List;
 
 import model.Address;
 import model.Item;
+import model.PurchaseOrder;
 import model.User;
 
 public class ItemDAOImpl implements ItemDAO {
@@ -58,6 +59,7 @@ public class ItemDAOImpl implements ItemDAO {
 	   	 connection.close();
 	   	} catch (Exception e) {
 			// TODO: handle exception
+	   		e.printStackTrace();
 		}
 	   	
 		
@@ -161,6 +163,7 @@ public class ItemDAOImpl implements ItemDAO {
 	   	 connection.close();
 	   	} catch (Exception e) {
 			// TODO: handle exception
+	   		e.printStackTrace();
 		}
 	}
 
@@ -182,6 +185,50 @@ public class ItemDAOImpl implements ItemDAO {
 			connection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void purchase(Item item, User user) {
+		// TODO Auto-generated method stub
+		
+		String queryString = "select id from PO;";
+	   	System.out.println(queryString);
+	   	
+	   	
+	   	 try {
+				
+	   	 Class.forName("com.mysql.cj.jdbc.Driver");
+	   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
+	   	 
+	   	 java.sql.Statement statement = connection.createStatement();
+	   	 
+	   	 ResultSet resultSet = statement.executeQuery(queryString);
+	   	 
+	   	 int id = 0;
+	   	
+	   	 
+	   	 while (resultSet.next()) {
+			id = resultSet.getInt("id");
+			
+		 }
+
+	   	 PurchaseOrder po = new PurchaseOrder(id + 1, user, item);
+	   	 
+	   	 
+	   	 String insertItemQueryString = "insert into po values ('" + po.getId() + "','" + po.getUser().getUsername() + "','" + po.getItem().getId() + "','" + po.getDateOfCreation() + "');";
+		 
+		 Statement insertStatement = connection.createStatement();
+	   	 
+		 int insertResultSet = insertStatement.executeUpdate(insertItemQueryString);
+	   	
+	   	 
+	   	 
+	   	 connection.close();
+	   	} catch (Exception e) {
+			// TODO: handle exception
+	   		e.printStackTrace();
 		}
 		
 	}

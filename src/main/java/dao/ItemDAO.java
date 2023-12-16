@@ -15,5 +15,6 @@ public interface ItemDAO {
 	
 	public void delete(String itemID);
 	
+	public void purchase(Item item, User user);
 
 }
