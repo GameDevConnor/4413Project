@@ -217,7 +217,7 @@ public class ItemDAOImpl implements ItemDAO {
 	   	 PurchaseOrder po = new PurchaseOrder(id + 1, user, item);
 	   	 
 	   	 
-	   	 String insertItemQueryString = "insert into po values ('" + po.getId() + "','" + po.getUser().getUsername() + "','" + po.getItem().getId() + "','" + po.getDateOfCreation() + "');";
+	   	 String insertItemQueryString = "insert into po values ('" + po.getId() + "','" + po.getUser().getUsername() + "','" + po.getItem().getId() + "','" + po.getDateOfCreation().toString() + "');";
 		 
 		 Statement insertStatement = connection.createStatement();
 	   	 

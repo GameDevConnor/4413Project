@@ -14,4 +14,6 @@ public interface UserDAO {
 		
 		public void delete(String username);
 		
+		public List<String> purchaseHistory(User user);
+		
 }

@@ -80,6 +80,8 @@ public class Item {
 		this.price = price;
 	}
 	
-	
+	public String toString() {
+		return name + "," + description + "," + category + "," + brand + "," + quantity + "," + price;
+	}
 
 }

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Address;
+import model.Item;
 import model.User;
 
 public class UserDAOImpl implements UserDAO {
@@ -173,7 +174,7 @@ public class UserDAOImpl implements UserDAO {
 			 int maxAddress = 1;
 			 
 			 while (maxAddressResultSet.next()) {
-				 	maxAddress = resultSet.getInt("id");
+				 	maxAddress = maxAddressResultSet.getInt("id");
 				 
 				}
 			 
@@ -220,6 +221,76 @@ public class UserDAOImpl implements UserDAO {
 		}
 		
 		
+	}
+	
+	public List<String> purchaseHistory(User user) {
+		List<String> items = new ArrayList<String>();
+
+		String queryString = "select * from po where po.customerID = '" + user.getUsername() + "';";
+	   	System.out.println(queryString);
+	   	
+	   	
+	   	 try {
+				
+	   	 Class.forName("com.mysql.cj.jdbc.Driver");
+	   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
+	   	 
+	   	 java.sql.Statement statement = connection.createStatement();
+	   	 
+	   	 ResultSet resultSet = statement.executeQuery(queryString);
+	   	
+	   	 
+	   	 while (resultSet.next()) {
+			int id = resultSet.getInt("id");
+			String customerID = resultSet.getString("customerID");
+			String itemID = resultSet.getString("itemID");
+			String date = resultSet.getString("dateOfPurchase");
+			
+			String itemQueryString = "select * from item where item.id = '" + itemID + "';";
+		   	System.out.println(queryString);
+		   	
+		   	java.sql.Statement itemStatement = connection.createStatement();
+		   	 
+		   	ResultSet itemResultSet = itemStatement.executeQuery(itemQueryString);
+		   	
+			String item = "";
+		   	
+		   	while (itemResultSet.next()) {
+		   		
+		   		String itemQueryID = itemResultSet.getString("id");
+				String name = itemResultSet.getString("itemName");
+				String description = itemResultSet.getString("itemDescription");
+				String category = itemResultSet.getString("category");
+				String brand = itemResultSet.getString("brand");
+				int quantity = itemResultSet.getInt("quantity");
+				float price = itemResultSet.getFloat("price");
+
+				
+				Item itemToAdd = new Item(itemQueryID, name, description, category, brand, quantity, price);
+				
+				item += itemToAdd.toString() + "," + date;
+		   	}
+
+			
+
+
+			items.add(item);
+			
+			
+		}
+
+	   	
+	   	 
+	   	 
+	   	 connection.close();
+	   	} catch (Exception e) {
+			// TODO: handle exception
+	   		e.printStackTrace();
+		}
+	   	
+		
+		
+		return items;
 	}
 
 }
