@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html >
 <head>
 	<link rel="stylesheet" href="/4413Project/css/header.css" type="text/css" />
@@ -16,9 +17,10 @@
 	
 	<div class="headerButtons">
 
-		<!-- <a id="visible" href=""><button id="visible" onClick="shoppingCart()">Shopping Cart</button></a> -->
-		<a id="visible" href="">Shopping Cart</a> 
-		<a id="visible" href="/4413Project/${initParam.paramC}?action=review&username=${sessionScope.currentUser}">View Profile</a>
+		<c:if test="${sessionScope.currentUser ne 'admin@yorku.ca'}">
+			<a id="visible" href="">Shopping Cart</a> 
+			<a id="visible" href="/4413Project/${initParam.paramC}?action=review&username=${sessionScope.currentUser}">View Profile</a>
+        </c:if>
 		
 		<!-- Servlet: go to CustomerControllerForAdmin, sign out, and remove the current session user -->		
 		<form class='signOut' name="signOut" action="/4413Project/customers">	
