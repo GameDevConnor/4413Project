@@ -55,4 +55,14 @@
     <servlet-name>itemDetailsServlet</servlet-name>
     <url-pattern>/itemDetailsServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetItemData</display-name>
+    <servlet-name>GetItemData</servlet-name>
+    <servlet-class>restService.GetItemData</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetItemData</servlet-name>
+    <url-pattern>/GetItemData</url-pattern>
+  </servlet-mapping>
 </web-app>

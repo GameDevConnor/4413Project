@@ -50,9 +50,12 @@
         <span class="label" style="margin-left: 15px;">Featured Products</span>
         <table id="featuredProducts">
             <tr>
-                <td><span class="tooltip_img1" data-product-id="product1"><img src="/4413Project/${initParam.imageURL}/the-little-prince-52.jpg" /></span></td>
-                <td><span class="tooltip_img1" data-product-id="product2"><img src="/4413Project/${initParam.imageURL}/IPad_Air.png" /></span></td>
-                <td><span class="tooltip_img1" data-product-id="product3"><img src="/4413Project/${initParam.imageURL}/laptop.png" /></span></td>
+              <!--  <td><span id="b001" class="tooltip_img1" data-product-id="product1"><img src="/4413Project/${initParam.imageURL}/the-little-prince-52.jpg" /></span></td>
+                <td><span id="c001" class="tooltip_img1" data-product-id="product2"><img src="/4413Project/${initParam.imageURL}/IPad_Air.png" /></span></td>
+                <td><span id="d001" class="tooltip_img1" data-product-id="product3"><img src="/4413Project/${initParam.imageURL}/laptop.png" /></span></td> -->
+                <td><span id="b001" class="tooltip_img1" data-product-id="b001"><img src="/4413Project/${initParam.imageURL}/the-little-prince-52.jpg" /></span></td>
+                <td><span id="c001" class="tooltip_img1" data-product-id="c001"><img src="/4413Project/${initParam.imageURL}/IPad_Air.png" /></span></td>
+                <td><span id="d001" class="tooltip_img1" data-product-id="d001"><img src="/4413Project/${initParam.imageURL}/laptop.png" /></span></td>
             </tr>
         </table>
     </div>
@@ -71,15 +74,35 @@
             });
         });
         function displayProductDetails(productId) {
+        	
+        	
+    		var xhttp = new XMLHttpRequest(); // create XMLHttpRequestObject
+    		 
+    		var url = "GetItemData";
+    		var data='?a=' + productId;
+    		data += "&comm=ajax";
+    		
+    		xhttp.onreadystatechange = function() {
+    		if (xhttp.readyState == 4 && xhttp.status == 200) {
+    			
+    			var jsonResponse = JSON.parse(xhttp.responseText);
  
             // Simulating the item details with fake data
             var fakeData = {
-                name: "Fake Product",
-                description: "This is a fake product for demonstration purposes.",
-                category: "Electronics",
-                brand: "Fictional Brand",
-                quantity: 10,
-                price: 99.99
+              //  name: "Fake Product",
+              //  description: "This is a fake product for demonstration purposes.",
+              //  category: "Electronics",
+              //  brand: "Fictional Brand",
+              //  quantity: 10,
+              //  price: 99.99
+                
+              
+                name: jsonResponse.itemName,
+                description: jsonResponse.itemDescription,
+                category: jsonResponse.itemCategory,
+                brand: jsonResponse.itemBrand,
+                quantity: jsonResponse.itemQuantity,
+                price: jsonResponse.itemPrice
             };
             // Update the product details section with fake data
             $('#productDetails').html('<span id="closeButton" onclick="hideProductDetails()">Close</span>'
@@ -91,7 +114,14 @@
                 + '<p>Price: $' + fakeData.price + '</p>');
             // Show the product details
             $('#productDetails').show();
+            
+    		}
+    		}
+    		xhttp.open("GET", url+data, true); // open connection
+			xhttp.send(); // send
         }
+    		
+    		
         function hideProductDetails() {
             // Hide the product details
             $('#productDetails').hide();

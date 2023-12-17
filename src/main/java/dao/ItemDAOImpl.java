@@ -178,7 +178,7 @@ public class ItemDAOImpl implements ItemDAO {
 			
 		   	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
 			PreparedStatement statement = connection
-					.prepareStatement("delete from item where id='?'");
+					.prepareStatement("delete from item where id=?;");
 			statement.setString(1, itemID);
 			statement.execute();
 			
