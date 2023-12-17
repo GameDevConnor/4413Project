@@ -10,8 +10,8 @@
 <body>
  
 	<div>
-		<c:if test="${param.item != null}" > 
-		<span class="label" style="margin-left: 15px;"> List of ${param.item}  Products
+		<c:if test="${param.itemList != null}" > 
+		<span class="label" style="margin-left: 15px;"> List of ${param.itemList}  Items
 		</span>
 		</c:if>
 	</div>
@@ -29,13 +29,13 @@
 		</thead>
 
 		<tbody>
-		  <c:forEach items="${items}" var="item"> 
+		  <c:forEach items="${itemList}" var="item"> 
 			 <tr>
-				<%-- <th scope="row" id="r100"> ${book.bookTitle}</th> --%>
 				<td>${item.name}</td>
  			    <td>${item.brand}</td>
 			    <td>${item.category}</td>
 			    <td>${item.price}</td> 
+			    <td>${item.quantity}</td>
 			</tr>   
            </c:forEach>
 		</tbody>

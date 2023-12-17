@@ -19,7 +19,7 @@
 		<br />
 		<jsp:include page="leftColumnForItems.jsp" flush="true" />
 		<div>
-			<span class="label" style="margin-left: 15px;">List of All Products</span>
+			<span class="label" style="margin-left: 15px;">List of All Items</span>
 		</div>
 
 		<jsp:include page="listOfItems.jsp" flush="true" />

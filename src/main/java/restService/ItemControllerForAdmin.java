@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.UserDAO;
-import dao.UserDAOImpl;
-import model.User;
+import dao.ItemDAO;
+import dao.ItemDAOImpl;
+import model.Item;
 
 /**
  * Servlet implementation class ItemControllerForAdmin
@@ -46,7 +46,7 @@ public class ItemControllerForAdmin extends HttpServlet {
 			switch (action) {
 			case "allItems":
 				findAllItems(request, response);
-				url = base + "listOfItemasStructure.jsp";
+				url = base + "listOfItemsStructure.jsp";
 				flag = true;
 				break;
 			}
@@ -72,9 +72,9 @@ public class ItemControllerForAdmin extends HttpServlet {
 		// list all items for admin management
 		try {
 			// calling DAO method to retrieve a list of all items 
-			UserDAO userDao = new UserDAOImpl();
-			List<User> userList = userDao.findAllUsers();
-			request.setAttribute("userList", userList);
+			ItemDAO itemDao = new ItemDAOImpl();
+			List<Item> itemList = itemDao.findAllItems();
+			request.setAttribute("itemList", itemList);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(e);

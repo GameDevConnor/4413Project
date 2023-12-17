@@ -22,7 +22,7 @@
 			</a>
 		</div></li>
 		<li><div>
-			<a class="link1" href="/4413Project/${initParam.paramPH}">
+			<a class="link1" href="/4413Project/${initParam.paramPO}">
 			<span style="margin-left: 15px;" class="label">All Purchases</span></a>
 		</div></li>
 		<li><div>
