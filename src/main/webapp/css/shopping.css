@@ -91,6 +91,14 @@ table tr td,th {
 	background-color: rgb(192, 196, 214);
 }
 
+.addNew {
+	position: fixed; /* Fixed position to keep the button in place */
+
+    right: 15%; 
+    /*transform: translateY(-50%);  Center the button vertically 
+    border: none;*/
+}
+
 a:link {
 	font-family: arial, monospace;
 	text-decoration: none;

@@ -62,12 +62,14 @@
 					    	</a>
 				    	</td> 
 					</c:otherwise>
-				</c:choose>
-		    	
-		    	
+				</c:choose>		    	
 			</tr>   
            </c:forEach>
 		</tbody>
 	</table>
+	<c:if test="${sessionScope.currentUser eq 'admin@yorku.ca'}">
+		<br />
+		<input class="addNew" type="submit" value='Add New Item' />
+	</c:if>
 </body>
 </html>
