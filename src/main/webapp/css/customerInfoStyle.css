@@ -113,9 +113,18 @@ p {
 	flex: 1;
 } 
 
-.infoForm button {
+button {
+	cursor: pointer;
 	background:#777da6;
 	color: white;
 	border: none;
 	padding: 1em;
+}
+
+.backButton {
+	position: fixed; /* Fixed position to keep the button in place */
+    top: 100px; 
+    right: 10%; 
+    transform: translateY(-50%); /* Center the button vertically */
+    border: none;
 }

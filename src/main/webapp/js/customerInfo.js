@@ -1,3 +1,8 @@
+function goBack() {
+    // Go back in the browser's history
+    window.history.back();
+}
+
 function validate() {
  
 	console.log("called customerInfo.js");
@@ -56,3 +61,4 @@ function validate() {
     
     console.log("Query String: "+ window.location.search);
   }  // validate various form components
+  
