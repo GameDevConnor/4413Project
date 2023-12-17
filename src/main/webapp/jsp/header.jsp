@@ -19,7 +19,9 @@
 		<!-- <a id="visible" href=""><button id="visible" onClick="shoppingCart()">Shopping Cart</button></a> -->
 		<a id="visible" href="">Shopping Cart</a> 
 		<a id="visible" href="/4413Project/${initParam.paramC}?action=review&username=${sessionScope.currentUser}">View Profile</a>
-		<form class='signOut' name="signOut" onsubmit="return signOut()">			
+		
+		<!-- Servlet: go to CustomerControllerForAdmin, sign out, and remove the current session user -->		
+		<form class='signOut' name="signOut" action="/4413Project/customers">	
 			<button type="submit">Sign Out</button>
 			<input type='hidden' name='action' value='signOut'>
 		</form>
