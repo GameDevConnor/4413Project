@@ -86,49 +86,43 @@ public class UserDAOImpl implements UserDAO {
 	   	 queryString += ";";
 	   	 System.out.println(queryString);
 	   	 
-	   	 User customer = new User();
-	   	 
-
+	   	 User customer = null; 
 	   	 
 	   	 try {
 			
-	   	 Class.forName("com.mysql.cj.jdbc.Driver");
-	   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
-	   	 
-	   	 java.sql.Statement statement = connection.createStatement();
-	   	 
-	   	 ResultSet resultSet = statement.executeQuery(queryString);
-	   	
-	   	 
-	   	resultSet.next();
-	   	 
-		String userName = resultSet.getString("username");
-		String firstName = resultSet.getString("firstName");
-		String lastName = resultSet.getString("lastName");
-		String password = resultSet.getString("pass");
-		
-		customer.setFirstName(firstName);
-		customer.setLastName(lastName);
-		customer.setUsername(userName);
-		customer.setPassword(password);
-		
-		String street = resultSet.getString("street");
-		String province = resultSet.getString("province");
-		String country = resultSet.getString("country");
-		String zip = resultSet.getString("zip");
-		String phone = resultSet.getString("phone");
-		
-		Address address = new Address(street, province, country, zip, phone);
-		
-		customer.setAddress(address);	   	
-		System.out.println("current user: " + userName); 
-	   	
-	   	 connection.close();
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
+			 
+			java.sql.Statement statement = connection.createStatement();
+			
+			ResultSet resultSet = statement.executeQuery(queryString);
+			
+			if (resultSet.next()) {			 
+				String userName = resultSet.getString("username");
+				String firstName = resultSet.getString("firstName");
+				String lastName = resultSet.getString("lastName");
+				String password = resultSet.getString("pass");
+				
+				customer = new User(userName, password, firstName, lastName);
+				
+				String street = resultSet.getString("street");
+				String province = resultSet.getString("province");
+				String country = resultSet.getString("country");
+				String zip = resultSet.getString("zip");
+				String phone = resultSet.getString("phone");
+				
+				Address address = new Address(street, province, country, zip, phone);
+				
+				customer.setAddress(address);	   	
+				System.out.println("current user: " + userName); 
+			   	
+			   	connection.close();
+		   	}
 	   	} catch (Exception e) {
 			// TODO: handle exception
+	   		e.printStackTrace();
 		}
 	   	 
-	   	
 	   	return customer;
 	   	 
 	}

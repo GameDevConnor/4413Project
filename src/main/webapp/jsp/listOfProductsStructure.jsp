@@ -5,11 +5,11 @@
 
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="ISO-8859-1">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="../css/shopping.css" type="text/css" />
-	<script src="../js/jquery-1.9.1.js"></script>
-	<script src="../js/shopping.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/4413Project/css/shopping.css" type="text/css" />
+	<script src="/4413Project/js/jquery-1.9.1.js"></script>
+	<script src="/4413Project/js/shopping.js" type="text/javascript"></script>
 </head>
 
 <body>

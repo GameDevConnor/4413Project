@@ -30,7 +30,6 @@ function validate() {
         return false;
     } // check if the Last Name data is missing
 
-
-
-    document.forms["signUpForm"].action="catalog.html";
+	// direct to UserController to insert new user to DB
+    document.forms["signUpForm"].action="customers?action=Insert";
   }  // validate various form components
