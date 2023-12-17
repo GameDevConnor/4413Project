@@ -68,7 +68,7 @@ table tr td,th {
 }
 
 #th-name {
-	width: 350px;
+	width: 300px;
 }
 
 #th-brand, #th-category {
@@ -76,6 +76,14 @@ table tr td,th {
 }
 
 #th-price, #th-qty {
+	width: 100px;
+}
+
+#th-button {
+	width: 100px;
+}
+
+#th-button2 {
 	width: 100px;
 }
 

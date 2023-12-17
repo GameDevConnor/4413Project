@@ -25,6 +25,8 @@
 				<th id="th-category">Category</th>
 				<th id="th-price">Price</th>		
 				<th id="th-qty">Quantity</th>			
+				<th id="th-button"></th>	
+				<th id="th-button2"></th>	
 			</tr>
 		</thead>
 
@@ -36,6 +38,33 @@
 			    <td>${item.category}</td>
 			    <td>${item.price}</td> 
 			    <td>${item.quantity}</td>
+			    <td>
+			    	<a href="/4413Project/${initParam.paramI}?action=review&id=${item.id}">
+			    	<!-- <input type="submit" value='Review/Update' /> -->
+			    	<input type="submit" value='View Details' />
+			    	</a>
+		    	</td> 
+		    	
+		    	<!-- If current user is admin: display update button to update qty -->
+		    	<!-- If current user is customer: display add button to add to shopping cart -->
+	    		<c:choose>
+					<c:when test="${sessionScope.currentUser eq 'admin@yorku.ca'}">
+						<td>
+					    	<a href="/4413Project/${initParam.paramI}?action=update&id=${item.id}">
+					    	<input type="submit" value='Update' />
+					    	</a>
+				    	</td> 
+					</c:when>
+					<c:otherwise>
+						<td>
+					    	<a href="/4413Project/${initParam.paramPO}?action=add&id=${item.id}">
+					    	<input type="submit" value='Add To Cart' />
+					    	</a>
+				    	</td> 
+					</c:otherwise>
+				</c:choose>
+		    	
+		    	
 			</tr>   
            </c:forEach>
 		</tbody>
