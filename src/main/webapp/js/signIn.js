@@ -8,7 +8,7 @@ function validate() {
     } // check if the User Name data is missing
     else if (!document.forms["signinForm"]["username"].value.match(properUsername)) {
         alert("Username format invalid, should be an email address")
-        document.forms["signInForm"]["username"].focus();
+        document.forms["signinForm"]["username"].focus();
         return false;
     } // further check if the username is a valid username format
 
@@ -19,7 +19,7 @@ function validate() {
     } // check if the Password field is missing
 
 	// Servlet: check credentials in DB and update the action
-    document.forms["signinForm"].action="/4413Projct/SignIn";
+    document.forms["signinForm"].action="/4413Project/SignIn";
     document.forms["signinForm"].method="get";
     
 

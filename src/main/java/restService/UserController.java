@@ -56,6 +56,7 @@ public class UserController extends HttpServlet {
 				String currentUser = (String) session.getAttribute("currentUser");
 				if (currentUser == null) {  // No currentUser, add request's user here
 					session.setAttribute("currentUser", username);  // Save it into session
+					System.out.println("Current session user from signIn.html: " + username);
 				}
 			}
 			

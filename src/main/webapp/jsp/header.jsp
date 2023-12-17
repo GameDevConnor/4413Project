@@ -16,11 +16,14 @@
 	
 	<div>
 	<% String username = (String) session.getAttribute("currentUser"); %>
-	<form class='signinForm' name="signinForm" onsubmit="return validate()">
+	
 		<a id="visible" href=""><button>Shopping Cart</button></a>
 		<a id="visible" href="/4413Projet/jsp/customerInfo.jsp"><button>View Profile</button></a>
-		<a href="/4413Project/html/signIn.html"><button>Sign Out</button></a>
-	</form>
+		
+		<form class='signOut' name="signOut" onsubmit="return signOut()">
+			<input type='hidden' name='action' value='signOut'>
+			<button type="submit">Sign Out</button>
+		</form>
 	</div>
 </div>
 </body>
