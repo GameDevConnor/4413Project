@@ -46,7 +46,6 @@ public class UserDAOImpl implements UserDAO {
 			customer.setPassword(password);
 			
 			String street = resultSet.getString("street");
-			System.out.println(street);
 			String province = resultSet.getString("province");
 			String country = resultSet.getString("country");
 			String zip = resultSet.getString("zip");
@@ -166,16 +165,17 @@ public class UserDAOImpl implements UserDAO {
 				 	maxAddress = maxAddressResultSet.getInt("id");
 				 
 				}
-			 
-			 
-			 String addAddress = "insert into address values (" + maxAddress + 1 + "," + user.getAddress().getStreet() + "," + user.getAddress().getProvince() + "," + user.getAddress().getCountry() + "," + user.getAddress().getZip() + user.getAddress().getPhone() + ");";
+			 maxAddress++;
+			 address = maxAddress;
+			 String addAddress = "insert into address values (" + maxAddress + ", '" + user.getAddress().getStreet() + "', '" + user.getAddress().getProvince() + "', '" + user.getAddress().getCountry() + "', '" + user.getAddress().getZip() +  "', '" + user.getAddress().getPhone() + "');";
+			 System.out.println(addAddress);
 			 int insertResultSetAddress = statement.executeUpdate(addAddress);
 
 			 
 		 }
 		 
 		 
-			String queryString = "insert into customer values (" + user.getUsername() + "," + user.getPassword() + "," + user.getFirstName() + "," + user.getLastName() + "," + address + ")";
+			String queryString = "insert into customer values ('" + user.getUsername() + "', '" + user.getPassword() + "', '" + user.getFirstName() + "', '" + user.getLastName() + "', '" + address + "')";
 			queryString += ";";
 		   	System.out.println(queryString);
 			int insertResultSetCustomer = statement.executeUpdate(queryString);

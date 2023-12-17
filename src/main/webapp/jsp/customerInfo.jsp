@@ -72,27 +72,27 @@
 		<h2>Shipping Info</h2>
 		<p>
 			<b><label for="street">Street: </label></b>
-			<input id='street' name='street' type="text" value=${user.address.street}/>
+			<input id='street' name='street' type="text" value='${user.address.street}'/>
 		</p>
 	<!-- 	<p>
 			<b><label for="city">City: </label></b>
-			<input id='city' name='city' type="text" value=${user.address.province}/>
+			<input id='city' name='city' type="text" value='${user.address.province}'/>
 		</p> -->
 		<p>
 			<b><label for="province">Province: </label></b>
-			<input id='province' name='province' type="text" value=${user.address.province} />
+			<input id='province' name='province' type="text" value='${user.address.province}' />
 		</p>
 		<p>
 			<b><label for="country">Country: </label></b>
-			<input id='country' name='country' type="text" value=${user.address.country} />
+			<input id='country' name='country' type="text" value='${user.address.country}' />
 		</p>
 		<p>
 			<b><label for="zip">Zip: </label></b>
-			<input id='zip' name='zip' type="text" value=${user.address.zip} />
+			<input id='zip' name='zip' type="text" value='${user.address.zip}' />
 		</p>
 		<p>
 			<b><label for="phone">Phone: </label></b>
-			<input id='phone' name='phone' type="text" maxlength="12" value=${user.address.phone} />
+			<input id='phone' name='phone' type="text" maxlength="12" value='${user.address.phone}' />
 		</p>
 		</section>
 		
