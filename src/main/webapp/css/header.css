@@ -4,10 +4,25 @@ body {
     margin: 0;
     padding: 0;
 }
+/*
+form {
+	position: fixed; 
+    top: 10%; 
+    right: 20%; 
+    transform: translateY(-50%); 
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+}*/
 
-div a {
-	top: 50%; /* Adjust as needed */
-    right: 50%;
+.headerButtons {
+	position: fixed; /* Fixed position to keep the button in place */
+    top: 80px; 
+    right: 20%; /* Adjust the distance from the right edge of the screen */
+    transform: translateY(-50%); /* Center the button vertically */
+    border: none;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
 }
 
 button {	
@@ -16,8 +31,20 @@ button {
 	color: white;
 	border: none;
 	padding: 0.1em;
+	font-size: 15px;
+	font-weight: bold;
 }
 
-#visible {
-	display: block;
+#visible {	    
+    display: inline;
+    
+	cursor: pointer;
+    background:#777da6;
+	color: white;
+	border: none;
+	padding: 0.1em;
+}
+
+form {
+	display: inline;
 }

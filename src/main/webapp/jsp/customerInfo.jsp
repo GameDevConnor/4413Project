@@ -107,10 +107,11 @@
 			<!-- <input type='hidden' name='action' value='update'>
 	 		<button class="button" type="submit">Update Info</button> -->
 	 		<input type='hidden' name='action' value='delete'>
-	 		<button class="button" type="submit">Delete Account</button>  			
+	 		<button class="button" type="submit">Delete Account</button>  		
 		</div>
 		</section>
 	</form>
+		<button class="backButton" onclick="goBack()">Go Back</button>
 	</fieldset>
 	</section>
 	

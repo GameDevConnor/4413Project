@@ -108,7 +108,7 @@ public class CustomerControllerForAdmin extends HttpServlet {
 				customer.setAddress(address);		
 				
 				insertUser(request, response, customer);				
-				url = base + "shoppingMain.jsp";
+				url = "/html/signIn.html"; // Redirect to sign in screen once new user created
 				flag = true;
 				break;
 			}
@@ -117,6 +117,13 @@ public class CustomerControllerForAdmin extends HttpServlet {
 				searchUsersByKeyword(request, response, username);				
 				url = base + "customerInfo.jsp";
 				flag = true;
+				break;
+			}
+			case "signOut": {
+				System.out.println("Sign Out " + currentUser);	
+				url = "/html/signIn.html";
+				flag = true;
+				session.removeAttribute("currentUser");
 				break;
 			}
 			case "delete": {

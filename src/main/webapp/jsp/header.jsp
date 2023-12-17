@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html >
 <head>
 	<link rel="stylesheet" href="/4413Project/css/header.css" type="text/css" />
@@ -14,13 +15,18 @@
 			<span style= "color: white;"> - Find Your Dream Product</span></span>
 	</h2>
 	
-	<div>
-	<% String username = (String) session.getAttribute("currentUser"); %>
-	<form class='signinForm' name="signinForm" onsubmit="return validate()">
-		<a id="visible" href=""><button>Shopping Cart</button></a>
-		<a id="visible" href="/4413Projet/jsp/customerInfo.jsp"><button>View Profile</button></a>
-		<a href="/4413Project/html/signIn.html"><button>Sign Out</button></a>
-	</form>
+	<div class="headerButtons">
+
+		<c:if test="${sessionScope.currentUser ne 'admin@yorku.ca'}">
+			<a id="visible" href="">Shopping Cart</a> 
+			<a id="visible" href="/4413Project/${initParam.paramC}?action=review&username=${sessionScope.currentUser}">View Profile</a>
+        </c:if>
+		
+		<!-- Servlet: go to CustomerControllerForAdmin, sign out, and remove the current session user -->		
+		<form class='signOut' name="signOut" action="/4413Project/customers">	
+			<button type="submit">Sign Out</button>
+			<input type='hidden' name='action' value='signOut'>
+		</form>
 	</div>
 </div>
 </body>
