@@ -45,4 +45,14 @@
     <servlet-name>customerController</servlet-name>
     <url-pattern>/customerController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>itemDetailsServlet</display-name>
+    <servlet-name>itemDetailsServlet</servlet-name>
+    <servlet-class>itemDetailsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>itemDetailsServlet</servlet-name>
+    <url-pattern>/itemDetailsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

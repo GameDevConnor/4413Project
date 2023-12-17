@@ -16,5 +16,7 @@ public interface ItemDAO {
 	public void delete(String itemID);
 	
 	public void purchase(Item item, User user, int quantity);
+	
+	public Item findItemById(String itemID);
 
 }
