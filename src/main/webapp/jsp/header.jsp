@@ -14,15 +14,14 @@
 			<span style= "color: white;"> - Find Your Dream Product</span></span>
 	</h2>
 	
-	<div>
-	<% String username = (String) session.getAttribute("currentUser"); %>
-	
-		<a id="visible" href=""><button>Shopping Cart</button></a>
-		<a id="visible" href="/4413Project/${initParam.paramC}?action=review&username=${sessionScope.currentUser}"><button>View Profile</button></a>
-		
-		<form class='signOut' name="signOut" onsubmit="return signOut()">
-			<input type='hidden' name='action' value='signOut'>
+	<div class="headerButtons">
+
+		<!-- <a id="visible" href=""><button id="visible" onClick="shoppingCart()">Shopping Cart</button></a> -->
+		<a id="visible" href="">Shopping Cart</a> 
+		<a id="visible" href="/4413Project/${initParam.paramC}?action=review&username=${sessionScope.currentUser}">View Profile</a>
+		<form class='signOut' name="signOut" onsubmit="return signOut()">			
 			<button type="submit">Sign Out</button>
+			<input type='hidden' name='action' value='signOut'>
 		</form>
 	</div>
 </div>
