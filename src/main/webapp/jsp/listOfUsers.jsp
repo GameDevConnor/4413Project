@@ -29,10 +29,12 @@
 
 		<tbody>
 		  <c:forEach items="${userList}" var="user">
+		  
 			<script>
 			  var baseUrl = window.location.origin;
 			  console.log("User +1");
 			</script> 
+			
 			 <tr>
 				<td>${user.username}</td>
  			    <td>${user.password}</td>

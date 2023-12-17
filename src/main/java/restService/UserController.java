@@ -99,9 +99,9 @@ public class UserController extends HttpServlet {
 		}
 		
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(url);
-//		requestDispatcher.forward(request, response);
+		requestDispatcher.forward(request, response);
 //		System.out.println(request.getContextPath());
-		response.sendRedirect(request.getContextPath() + url);
+//		response.sendRedirect(request.getContextPath() + url);
 	}
 
 	/**
