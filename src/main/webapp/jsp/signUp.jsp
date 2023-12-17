@@ -103,7 +103,7 @@
 		</div>
 		</section>
 		
-		<h5><strong><i>Please fill all fields</i></strong></h5>
+		<h5><strong><i>* Please fill in all fields</i></strong></h5>
 	</form>
 	</fieldset>
 	</section>

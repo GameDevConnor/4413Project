@@ -4,9 +4,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/shopping.css" type="text/css" />
-    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-    <script src="js/shopping.js"></script>
+    <link rel="stylesheet" href="/4413Project/css/shopping.css" type="text/css" />
+    <script type="text/javascript" src="/4413Project/js/jquery-1.9.1.js"></script>
+    <script src="/4413Project/js/shopping.js"></script>
     <style>
         #centered {
             position: relative;
@@ -40,7 +40,9 @@
     <div id="centered">
         <jsp:include page="header.jsp" flush="true" />
         
-        <% String username = request.getParameter("username"); %>
+        <%@ page import="model.User" %>
+        <% User user = (User) request.getAttribute("user"); %>
+        <% String username = user.getUsername(); %>
         <script>
                 console.log("Current user: "+ '<%=username%>');
         </script>
