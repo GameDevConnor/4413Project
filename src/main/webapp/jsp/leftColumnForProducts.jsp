@@ -24,7 +24,7 @@
 				</a>
 			</div></li>
 		<li><div>
-				<a class="link1" href="/4413Project/${initParam.param1}?action=allItems"><span
+				<a class="link1" href="/4413Project/${initParam.paramP}?action=allItems"><span
 					style="margin-left: 15px;" class="label">All Products</span></a>
 			</div></li>
 		<li><div>
