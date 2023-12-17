@@ -48,7 +48,7 @@ public class UserController extends HttpServlet {
 		
 		if (username != null && password != null) {
 			
-			if (username.equals("admin")) {
+			if (username.equals("admin@yorku.ca")) {
 				if (password.equals("pass")) {				
 					url = "/jsp/adminMain.jsp";		
 					flag = true;

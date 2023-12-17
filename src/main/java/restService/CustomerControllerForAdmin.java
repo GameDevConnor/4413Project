@@ -52,6 +52,12 @@ public class CustomerControllerForAdmin extends HttpServlet {
 				url = base + "customerInfo.jsp";
 				break;
 			}
+			case "insert": {
+				System.out.println("update " + username);
+				searchUsersByKeyword(request, response, username);				
+				url = base + "customerInfo.jsp";
+				break;
+			}
 			case "searchUser":
 				searchUsersByKeyword(request, response, keyWord);
 				url = base + "searchUserResult.jsp";
