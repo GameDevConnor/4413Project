@@ -1,21 +1,15 @@
-<%@page language="java" contentType="text/html"%>
-
-
-<%-- <%@page import="java.util.Enumeration"%> --%>
-<%-- <%@page import="java.util.Hashtable"%> --%>
-<%-- <%@page import="java.util.List"%> --%>
-<%-- <%@page import="java.util.ArrayList"%> --%>
-<%-- <%@page import="java.util.Iterator"%> --%>
-<%-- <%@page import="model.Book"%> --%>
-<%-- <%@page import="model.Category"%> --%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!DOCTYPE html >
+<html>
+<head>
 <link rel="stylesheet" href="/4413Project/css/shopping.css" type="text/css" />
 <script src="/4413Project/js/shopping.js" type="text/javascript"></script>
 <script src="/4413Project/js/jquery-1.9.1.js" type="text/javascript"></script>
 </head>
-
+<body>
 <div class="leftbar">
 	<ul id="menu">
 		<li><div>
@@ -62,7 +56,8 @@
 
 
 </div>
-
+</body>
+</html>
 
 
 

@@ -2,6 +2,8 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!DOCTYPE html >
+<head>
 <link rel="stylesheet" href="/4413Project/css/admin.css" type="text/css" />
 <script src="js/admin.js" type="/4413Project/text/javascript"></script>
 <script src="/4413Project/js/jquery-1.9.1.js" type="text/javascript"></script>

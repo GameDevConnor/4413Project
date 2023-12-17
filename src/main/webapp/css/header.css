@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div a {
+	top: 50%; /* Adjust as needed */
+    right: 50%;
+}
+
+button {	
+    cursor: pointer;
+    background:#777da6;
+	color: white;
+	border: none;
+	padding: 0.1em;
+}
+
+#visible {
+	display: block;
+}

@@ -19,7 +19,7 @@ function validate() {
     } // check if the Password field is missing
 
 	// Servlet: check credentials in DB and update the action
-    document.forms["signinForm"].action="SignIn";
+    document.forms["signinForm"].action="/4413Projct/SignIn";
     document.forms["signinForm"].method="get";
     
 
