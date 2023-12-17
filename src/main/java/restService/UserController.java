@@ -53,11 +53,11 @@ public class UserController extends HttpServlet {
 			synchronized (session) {  // synchronized to prevent concurrent updates 
 				
 				// Retrieve the current user's username for this session, if any. Otherwise, set from username parameter
-				String currentUser = (String) session.getAttribute("currentUser");
-				if (currentUser == null) {  // No currentUser, add request's user here
+//				String currentUser = (String) session.getAttribute("currentUser");
+//				if (currentUser == null) {  // No currentUser, add request's user here
 					session.setAttribute("currentUser", username);  // Save it into session
 					System.out.println("Current session user from signIn.html: " + username);
-				}
+//				}
 			}
 			
 			if (username.equals("admin@yorku.ca")) {

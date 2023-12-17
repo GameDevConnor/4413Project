@@ -18,7 +18,7 @@
 	<% String username = (String) session.getAttribute("currentUser"); %>
 	
 		<a id="visible" href=""><button>Shopping Cart</button></a>
-		<a id="visible" href="/4413Projet/jsp/customerInfo.jsp"><button>View Profile</button></a>
+		<a id="visible" href="/4413Project/${initParam.paramC}?action=review&username=${sessionScope.currentUser}"><button>View Profile</button></a>
 		
 		<form class='signOut' name="signOut" onsubmit="return signOut()">
 			<input type='hidden' name='action' value='signOut'>
