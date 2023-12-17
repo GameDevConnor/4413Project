@@ -238,5 +238,35 @@ public class ItemDAOImpl implements ItemDAO {
 		}
 		
 	}
+	
+	 @Override
+	    public Item findItemById(String itemId) {
+	        Item item = null;
+	        String queryString = "SELECT * FROM item WHERE id = ?;";
+
+	        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb", "root", "EECS4413");
+	             PreparedStatement statement = connection.prepareStatement(queryString)) {
+
+	            statement.setString(1, itemId);
+	            ResultSet resultSet = statement.executeQuery();
+
+	            if (resultSet.next()) {
+	                String id = resultSet.getString("id");
+	                String name = resultSet.getString("itemName");
+	                String description = resultSet.getString("itemDescription");
+	                String category = resultSet.getString("category");
+	                String brand = resultSet.getString("brand");
+	                int quantity = resultSet.getInt("quantity");
+	                float price = resultSet.getFloat("price");
+
+	                item = new Item(id, name, description, category, brand, quantity, price);
+	            }
+
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+
+	        return item;
+	    }
 
 }
