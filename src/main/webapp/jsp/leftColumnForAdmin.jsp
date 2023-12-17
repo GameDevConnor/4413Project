@@ -15,7 +15,7 @@
 			</a>
 		</div></li>
 		<li><div>
-			<a class="link1" href="/4413Project/customers?action=allUsers">
+			<a class="link1" href="/4413Project/${initParam.paramC}?action=allUsers">
 				<span style="margin-left: 15px;" class="label">All Users</span>
 			</a>
 		</div></li>
@@ -24,7 +24,7 @@
 			<span style="margin-left: 15px;" class="label">All Purchases</span></a>
 		</div></li>
 		<li><div>
-			<a class="link1" href="/4413Project/${initParam.param1}?action=allItems">
+			<a class="link1" href="/4413Project/${initParam.paramP}?action=allItems">
 			<span class="label" style="margin-left: 15px;">All Products</span></a>
 		</div></li>
 	</ul>

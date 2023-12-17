@@ -39,9 +39,10 @@ public class UserController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "/jsp/signIn.jsp";
+		String url = "/html/signIn.html";
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		Boolean flag = true; // flag used to identify if forward dispatcher should be called
 		
 		System.out.println("user: " + username + "; pass: " + password);
 		
@@ -49,7 +50,8 @@ public class UserController extends HttpServlet {
 			
 		if (username.equals("admin")) {
 			if (password.equals("pass")) {				
-				url = "/jsp/adminMain.jsp";				
+				url = "/jsp/adminMain.jsp";		
+				flag = true;
 			}
 			else {
 				response.setContentType("text/html"); //step 1 - typical servlet steps
@@ -60,6 +62,7 @@ public class UserController extends HttpServlet {
 				RequestDispatcher dis = request.getRequestDispatcher(url);
 				dis.include(request, response);
 				out.close();
+				flag = false;
 			}
 		}
 		else {
@@ -71,8 +74,7 @@ public class UserController extends HttpServlet {
 					if (user.getPassword().equals(password)){
 						request.setAttribute("user", user);
 						url = "/jsp/shoppingMain.jsp";
-						RequestDispatcher requestDispatcher = request.getRequestDispatcher(url);
-						requestDispatcher.forward(request, response);
+						flag = true;
 					}
 					else {
 						response.setContentType("text/html"); //step 1 - typical servlet steps
@@ -82,12 +84,14 @@ public class UserController extends HttpServlet {
 						RequestDispatcher dis = request.getRequestDispatcher(url);
 						dis.include(request, response);
 						out.close();
+						flag = false;
 					}
 				}
 				else {
 					url = "/html/signUp.html";
 					request.setAttribute("username", username);
 					request.setAttribute("password", password);
+					flag = true;
 				}
 				
 			} catch (Exception e) {
