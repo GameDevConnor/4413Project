@@ -46,6 +46,7 @@ public class UserDAOImpl implements UserDAO {
 			customer.setPassword(password);
 			
 			String street = resultSet.getString("street");
+			System.out.println(street);
 			String province = resultSet.getString("province");
 			String country = resultSet.getString("country");
 			String zip = resultSet.getString("zip");
@@ -185,6 +186,7 @@ public class UserDAOImpl implements UserDAO {
 	   	 connection.close();
 	   	} catch (Exception e) {
 			// TODO: handle exception
+	   		e.printStackTrace();
 		}
 		
 	}

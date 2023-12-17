@@ -15,6 +15,11 @@
 	<div id="centered">
 
 		<jsp:include page="header.jsp" flush="true" />
+		
+		<% String username = request.getParameter("username"); %>
+		<script>
+			console.log("Current user: "+ '<%=username%>');
+		</script>
 		<br />
 		<jsp:include page="leftColumnForProducts.jsp" flush="true" />
 		<span class="label" style="margin-left: 15px;">Featured Products</span>

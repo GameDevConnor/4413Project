@@ -25,11 +25,12 @@
 			<section class="sec1">
 			<h2>Login Info</h2>
 			<p>
-				<b><label for="username">Username: *</label></b>
-				<input id='username' name='username' type="text" value="${username}" placeholder="name@email.com">
+				<b><label for="username">Username:  ${username}</label></b>
+				<!-- <input id='username' name='username' type="text" value="${username}" placeholder="name@email.com"> -->
+				<input type='hidden' name='username' value='${username}' >
 			</p>
 			<p>
-				<b><label for="password">Password: *</label></b>
+				<b><label for="password">Password: </label></b>
 				<input id='password' name='password' type="password" value="${password}">
 			</p>
 			</section>
@@ -37,11 +38,11 @@
 			<section class="sec2">
 			<h2>Full Name</h2>
 			<p>
-				<b><label for="firstname">First Name: *</label></b>
+				<b><label for="firstname">First Name: </label></b>
 	            <input id='firstname' name='firstname' type="text">
 			</p>
 			<p>
-	            <b><label for="lastname">Last Name: *</label></b>
+	            <b><label for="lastname">Last Name: </label></b>
 	            <input id='lastname' name='lastname' type="text">
 			</p>
 			</section>
@@ -73,10 +74,10 @@
 			<b><label for="street">Street: </label></b>
 			<input id='street' name='street' type="text"/>
 		</p>
-		<p>
+		<!-- <p>
 			<b><label for="city">City: </label></b>
 			<input id='city' name='city' type="text"/>
-		</p>
+		</p> -->
 		<p>
 			<b><label for="province">Province: </label></b>
 			<input id='province' name='province' type="text"/>
@@ -91,15 +92,18 @@
 		</p>
 		<p>
 			<b><label for="phone">Phone: </label></b>
-			<input id='phone' name='phone' type="numeric" maxlength="10"/>
+			<input id='phone' name='phone' type="text" maxlength="12" placeholder="xxx-xxx-xxxx" />
 		</p>
 		</section>
 
 		<section class="sec5">
 		<div class="container">
+			<input type='hidden' name='action' value='insert'>
 	 		<button class="button" type="submit">Sign Up</button>  			
 		</div>
 		</section>
+		
+		<h5><strong><i>Please fill all fields</i></strong></h5>
 	</form>
 	</fieldset>
 	</section>

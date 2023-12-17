@@ -1,6 +1,7 @@
 package restService;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.UserDAO;
 import dao.UserDAOImpl;
+import model.Address;
 import model.User;
 
 /**
@@ -40,6 +42,8 @@ public class CustomerControllerForAdmin extends HttpServlet {
 		String username = request.getParameter("username");
 		String keyWord = request.getParameter("keyWord");
 		
+		System.out.println(request.getQueryString());
+		
 		if (action != null) {
 			switch (action) {
 			case "allUsers":
@@ -53,9 +57,50 @@ public class CustomerControllerForAdmin extends HttpServlet {
 				break;
 			}
 			case "insert": {
-				System.out.println("update " + username);
-				searchUsersByKeyword(request, response, username);				
-				url = base + "customerInfo.jsp";
+				System.out.println("Insert " + username);
+				
+				String userName = request.getParameter("username");
+				String firstName = request.getParameter("firstname");
+				String lastName = request.getParameter("lastname");
+				String password = request.getParameter("password");				
+				
+				User customer = new User(userName, password, firstName, lastName);				
+				
+				String street = request.getParameter("street");
+				String province = request.getParameter("province");
+				String country = request.getParameter("country");
+				String zip = request.getParameter("zip");
+				String phone = request.getParameter("phone");
+				
+				/*// if any shipping info field is not empty, ask user to enter complete shipping info
+				// !addressFieldCheck1 used to check if any shipping info field was entered
+				// addressFieldCheck2 used to check if user entered complete shipping info
+				Boolean addressFieldCheck1 = (street==null || street.isEmpty() && province==null || province.isEmpty() 
+						|| country==null || country.isEmpty() || zip==null || zip.isEmpty()
+						|| phone==null || phone.isEmpty());
+				Boolean addressFieldCheck2 = (street!=null && !street.isEmpty() && province!=null && !province.isEmpty() 
+						&& country!=null && !country.isEmpty() && zip!=null && !zip.isEmpty()
+						&& phone!=null && !phone.isEmpty());
+				if (!addressFieldCheck1) {		
+					if (addressFieldCheck2) {
+						Address address = new Address(street, province, country, zip, phone);				
+						customer.setAddress(address);						
+					}
+					else {
+						response.setContentType("text/html"); //step 1 - typical servlet steps					
+						PrintWriter out = response.getWriter(); //step 2 - typical servlet steps
+						out.println("<!DOCTYPE html>");
+						out.println("<h1>All shipping info must be filled!</h1>");
+						RequestDispatcher dis = request.getRequestDispatcher(url);
+						dis.include(request, response);
+						out.close();
+					}
+				}*/
+				Address address = new Address(street, province, country, zip, phone);				
+				customer.setAddress(address);		
+				
+				insertUser(request, response, customer);				
+				url = base + "shoppingMain.jsp";
 				break;
 			}
 			case "searchUser":
@@ -107,5 +152,20 @@ public class CustomerControllerForAdmin extends HttpServlet {
 			System.out.println(e);
 		}
 	}
+	
+	private void insertUser(HttpServletRequest request,
+			HttpServletResponse response, User user) throws ServletException, IOException {
+		// list all users for admin management
+		try {
+			// calling DAO method to insert a user
+			UserDAO userDao = new UserDAOImpl();
+			userDao.insert(user);
+			request.setAttribute("user", user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+	}
+	
 
 }
