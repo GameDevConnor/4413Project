@@ -28,7 +28,11 @@
 		</thead>
 
 		<tbody>
-		  <c:forEach items="${userList}" var="user"> 
+		  <c:forEach items="${userList}" var="user">
+			<script>
+			  var baseUrl = window.location.origin;
+			  console.log("User +1");
+			</script> 
 			 <tr>
 				<td>${user.username}</td>
  			    <td>${user.password}</td>
@@ -38,7 +42,7 @@
 			    	<input type='hidden' size='3' name='todo' value='update'> 
 			    	<input type='hidden' size='3' name='username' value='" + ${user.username} + "'> 
 			    	</form>-->
-			    	<a href="${initParam.paramC}?action=update&username=${user.username}">
+			    	<a href="/4413Project/${initParam.paramC}?action=update&username=${user.username}">
 			    	<input type="submit" value=Review/Update />
 			    	</a>
 		    	</td> 

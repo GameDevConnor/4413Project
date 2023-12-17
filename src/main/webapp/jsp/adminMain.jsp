@@ -5,15 +5,18 @@
  
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="ISO-8859-1">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="../css/admin.css" type="text/css" />
-	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-	<script src="../js/admin.js"></script>
+	<link rel="stylesheet" href="/4413Project/css/admin.css" type="text/css" />
+	<script type="text/javascript" src="/4413Project/js/jquery-1.9.1.js"></script>
+	<script src="/4413Project/js/admin.js"></script>
 </head>
 <body>
 	<div id="centered">
-
+		<!-- <script>
+		  var baseUrl = window.location.origin;
+		  console.log("Web server's root directory:", baseUrl);
+		</script> -->
 		<jsp:include page="header.jsp" flush="true" />
 		<br />
 		<jsp:include page="leftColumnForAdmin.jsp" flush="true" />

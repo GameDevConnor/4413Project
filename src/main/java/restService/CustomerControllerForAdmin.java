@@ -16,6 +16,7 @@ import model.User;
 
 /**
  * Servlet implementation class CustomerControllerForAdmin
+ * Used for admin to view all users, review/update a specific user info
  */
 @WebServlet({ "/customers"})
 public class CustomerControllerForAdmin extends HttpServlet {
@@ -36,7 +37,7 @@ public class CustomerControllerForAdmin extends HttpServlet {
 		String base = "/jsp/";
 		String url = base + "adminMain.jsp";
 		String action = request.getParameter("action");
-		String userName = request.getParameter("username");
+		String username = request.getParameter("username");
 		String category = request.getParameter("PH");
 		String keyWord = request.getParameter("keyWord");
 		
@@ -47,8 +48,8 @@ public class CustomerControllerForAdmin extends HttpServlet {
 				url = base + "listOfUsersStructure.jsp";
 				break;
 			case "update": {
-				System.out.println("update " + userName);
-				searchUsersByKeyword(request, response, userName);				
+				System.out.println("update " + username);
+				searchUsersByKeyword(request, response, username);				
 				url = base + "customerInfo.jsp";
 				break;
 			}
@@ -66,6 +67,8 @@ public class CustomerControllerForAdmin extends HttpServlet {
 		
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(url);
 		requestDispatcher.forward(request, response);
+//		System.out.println(request.getContextPath());
+//		response.sendRedirect(request.getContextPath() + url);
 	}
 
 	/**
@@ -94,7 +97,7 @@ public class CustomerControllerForAdmin extends HttpServlet {
 			HttpServletResponse response, String keyWord) throws ServletException, IOException {
 		// list all users for admin management
 		try {
-			// calling DAO method to retrieve a list of all users 
+			// calling DAO method to retrieve a user by their username
 			UserDAO userDao = new UserDAOImpl();
 			User user = userDao.searchUsersByKeyword(keyWord);
 			request.setAttribute("user", user);

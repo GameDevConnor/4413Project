@@ -11,20 +11,20 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<link rel="stylesheet" href="../css/shopping.css" type="text/css" />
-<script src="../js/shopping.js" type="text/javascript"></script>
-<script src="../js/jquery-1.9.1.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/4413Project/css/shopping.css" type="text/css" />
+<script src="/4413Project/js/shopping.js" type="text/javascript"></script>
+<script src="/4413Project/js/jquery-1.9.1.js" type="text/javascript"></script>
 </head>
 
 <div class="leftbar">
 	<ul id="menu">
 		<li><div>
-				<a class="link1" href="${initParam.param1}"> <span class="label"
+				<a class="link1" href="/4413Project/jsp/shoppingMain.jsp"> <span class="label"
 					style="margin-left: 15px;">Home</span>
 				</a>
 			</div></li>
 		<li><div>
-				<a class="link1" href="${initParam.param1}?action=allItems"><span
+				<a class="link1" href="/4413Project/${initParam.param1}?action=allItems"><span
 					style="margin-left: 15px;" class="label">All Products</span></a>
 			</div></li>
 		<li><div>
@@ -36,7 +36,7 @@
      
 			    		     
 				<li><a class="label"
-					href="${initParam.param1}?action=category&categoryId=${item.id}&category=${item.categoryDescription}">
+					href="/4413Project/${initParam.param1}?action=category&categoryId=${item.id}&category=${item.categoryDescription}">
 					<span  class="label" style="margin-left: 30px;">
 						${item.categoryDescription} </span></a>
 				</li>

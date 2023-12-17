@@ -5,11 +5,11 @@
 
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="ISO-8859-1">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="css/shopping.css" type="text/css" />
-	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-	<script src="js/shopping.js"></script>
+	<link rel="stylesheet" href="/4413Project/css/shopping.css" type="text/css" />
+	<script type="/4413Project/text/javascript" src="js/jquery-1.9.1.js"></script>
+	<script src="/4413Project/js/shopping.js"></script>
 </head>
 <body>
 	<div id="centered">
@@ -21,11 +21,11 @@
 		<table >
 			<tr>
 				<td><span class="tooltip_img1">
-					<img src="../${initParam.imageURL}/the-little-prince-52.jpg" /></span></td>
+					<img src="/4413Project/${initParam.imageURL}/the-little-prince-52.jpg" /></span></td>
 				<td><span class="tooltip_img1">
-					<img src="../${initParam.imageURL}/IPad_Air.png" /></span></td>
+					<img src="/4413Project/${initParam.imageURL}/IPad_Air.png" /></span></td>
 				<td><span class="tooltip_img1">
-					<img src="../${initParam.imageURL}/laptop.png" /></span>
+					<img src="/4413Project/${initParam.imageURL}/laptop.png" /></span>
 				</td>
 			</tr>
 <!--			<tr>

@@ -2,29 +2,29 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<link rel="stylesheet" href="css/admin.css" type="text/css" />
-<script src="js/admin.js" type="text/javascript"></script>
-<script src="js/jquery-1.9.1.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/4413Project/css/admin.css" type="text/css" />
+<script src="js/admin.js" type="/4413Project/text/javascript"></script>
+<script src="/4413Project/js/jquery-1.9.1.js" type="text/javascript"></script>
 </head>
 
 <div class="leftbar">
 	<ul id="menu">
 		<li><div>
-			<a class="link1" href="adminMain.jsp"> 
+			<a class="link1" href="/4413Project/jsp/adminMain.jsp"> 
 				<span class="label" style="margin-left: 15px;">Home</span>
 			</a>
 		</div></li>
 		<li><div>
-			<a class="link1" href="${initParam.paramC}?action=allUsers">
+			<a class="link1" href="/4413Project/customers?action=allUsers">
 				<span style="margin-left: 15px;" class="label">All Users</span>
 			</a>
 		</div></li>
 		<li><div>
-			<a class="link1" href="${initParam.paramPH}">
+			<a class="link1" href="/4413Project/${initParam.paramPH}">
 			<span style="margin-left: 15px;" class="label">All Purchases</span></a>
 		</div></li>
 		<li><div>
-			<a class="link1" href="${initParam.param1}?action=allItems">
+			<a class="link1" href="/4413Project/${initParam.param1}?action=allItems">
 			<span class="label" style="margin-left: 15px;">All Products</span></a>
 		</div></li>
 	</ul>
