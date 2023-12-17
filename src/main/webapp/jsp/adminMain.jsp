@@ -13,10 +13,10 @@
 </head>
 <body>
 	<div id="centered">
-		<!-- <script>
-		  var baseUrl = window.location.origin;
-		  console.log("Web server's root directory:", baseUrl);
-		</script> -->
+		<% String username = (String) session.getAttribute("currentUser"); %>
+        <script>
+                console.log("Current user: "+ '<%=username%>');
+        </script>
 		<jsp:include page="header.jsp" flush="true" />
 		<br />
 		<jsp:include page="leftColumnForAdmin.jsp" flush="true" />

@@ -39,12 +39,10 @@
 <body>
     <div id="centered">
         <jsp:include page="header.jsp" flush="true" />
-        
-        <%@ page import="model.User" %>
-        <% User user = (User) request.getAttribute("user"); %>
-        <% String username = user.getUsername(); %>
+
+        <% String username = (String) session.getAttribute("currentUser"); %>
         <script>
-                console.log("Current user: "+ '<%=username%>');
+                console.log("Current session user: "+ '<%=username%>');
         </script>
                 
         <br />

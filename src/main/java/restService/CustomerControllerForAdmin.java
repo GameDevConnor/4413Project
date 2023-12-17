@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDAO;
 import dao.UserDAOImpl;
@@ -41,6 +42,11 @@ public class CustomerControllerForAdmin extends HttpServlet {
 		String action = request.getParameter("action");
 		String username = request.getParameter("username");
 		String keyWord = request.getParameter("keyWord");
+		Boolean flag = true; // flag used to identify if forward dispatcher should be called
+
+		// Retrieve current signed in user's username
+		HttpSession session = request.getSession(true);
+		String currentUser = (String) session.getAttribute("currentUser");
 		
 		System.out.println(request.getQueryString());
 		
@@ -49,11 +55,13 @@ public class CustomerControllerForAdmin extends HttpServlet {
 			case "allUsers":
 				findAllUsers(request, response);
 				url = base + "listOfUsersStructure.jsp";
+				flag = true;
 				break;
-			case "update": {
-				System.out.println("update " + username);
+			case "review": {
+				System.out.println("review " + username);
 				searchUsersByKeyword(request, response, username);				
 				url = base + "customerInfo.jsp";
+				flag = true;
 				break;
 			}
 			case "insert": {
@@ -101,20 +109,61 @@ public class CustomerControllerForAdmin extends HttpServlet {
 				
 				insertUser(request, response, customer);				
 				url = base + "shoppingMain.jsp";
+				flag = true;
 				break;
+			}
+			case "update": {
+				System.out.println("update " + username);
+				searchUsersByKeyword(request, response, username);				
+				url = base + "customerInfo.jsp";
+				flag = true;
+				break;
+			}
+			case "delete": {
+				System.out.println("delete " + username);
+				deleteUser(request, response, username);					
+				
+				if (currentUser.equals("admin@yorku.ca")) {
+					url = "customers?action=allUsers";
+					
+					response.setContentType("text/html"); //step 1 - typical servlet steps
+					PrintWriter out = response.getWriter(); //step 2 - typical servlet steps
+					out.println("<!DOCTYPE html>");
+					out.println("<h2>" + username + " - Account Deleted!</h2>;");
+					RequestDispatcher dis = request.getRequestDispatcher(url);
+					dis.include(request, response);
+					out.close();
+					flag = false;
+					break;
+				}
+				else {
+					url = "/html/signIn.html";
+					
+					response.setContentType("text/html"); //step 1 - typical servlet steps
+					PrintWriter out = response.getWriter(); //step 2 - typical servlet steps
+					out.println("<!DOCTYPE html>");
+					out.println("<h1>" + username + " - Account Deleted! Goodbye!</h1>");
+					RequestDispatcher dis = request.getRequestDispatcher(url);
+					dis.include(request, response);
+					out.close();
+					session.removeAttribute("currentUser");
+					flag = false;
+					break;
+				}				
 			}
 			case "searchUser":
 				searchUsersByKeyword(request, response, keyWord);
 				url = base + "searchUserResult.jsp";
+				flag = true;
 				break;
-
 			}
 		}
-		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher(url);
-		requestDispatcher.forward(request, response);
-//		System.out.println(request.getContextPath());
-//		response.sendRedirect(request.getContextPath() + url);
+		if (flag) {
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher(url);
+			requestDispatcher.forward(request, response);
+			//System.out.println(request.getContextPath());
+			//response.sendRedirect(request.getContextPath() + url);
+		}
 	}
 
 	/**
@@ -141,7 +190,6 @@ public class CustomerControllerForAdmin extends HttpServlet {
 	
 	private void searchUsersByKeyword(HttpServletRequest request,
 			HttpServletResponse response, String keyWord) throws ServletException, IOException {
-		// list all users for admin management
 		try {
 			// calling DAO method to retrieve a user by their username
 			UserDAO userDao = new UserDAOImpl();
@@ -155,12 +203,23 @@ public class CustomerControllerForAdmin extends HttpServlet {
 	
 	private void insertUser(HttpServletRequest request,
 			HttpServletResponse response, User user) throws ServletException, IOException {
-		// list all users for admin management
 		try {
 			// calling DAO method to insert a user
 			UserDAO userDao = new UserDAOImpl();
 			userDao.insert(user);
 			request.setAttribute("user", user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+	}
+	
+	private void deleteUser(HttpServletRequest request,
+			HttpServletResponse response, String keyWord) throws ServletException, IOException {
+		try {
+			// calling DAO method to delete a user
+			UserDAO userDao = new UserDAOImpl();
+			userDao.delete(keyWord);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(e);

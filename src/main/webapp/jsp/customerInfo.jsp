@@ -27,11 +27,12 @@
 			<section class="sec1">
 			<h2>Login Info</h2>
 			<p>
-				<b><label for="username">Username: ${user.username}</label></b>
+				<b><label for="username">Username:  ${user.username}</label></b>
+				<input type='hidden' name='username' value='${user.username}' >
 			</p>
 			<p>
 				<b><label for="password">Password: *</label></b>
-				<input id='password' name='password' type="text" value=${user.password} required> 
+				<input id='password' name='password' type="text" value='${user.password}' > 
 			</p>
 			</section>
 			
@@ -39,11 +40,11 @@
 			<h2>Full Name</h2>
 			<p>
 				<b><label for="firstname">First Name: *</label></b>
-	            <input id='firstname' name='firstname' type="text" value=${user.firstName} required>
+	            <input id='firstname' name='firstname' type="text" value='${user.firstName}' >
 			</p>
 			<p>
 	            <b><label for="lastname">Last Name: *</label></b>
-	            <input id='lastname' name='lastname' type="text" value=${user.lastName} required> 
+	            <input id='lastname' name='lastname' type="text" value='${user.lastName}' > 
 			</p>
 			</section>
 		</div>
@@ -103,7 +104,10 @@
 
 		<section class="sec6">
 		<div class="container">
-	 		<button class="button" type="submit">Update Info</button>  			
+			<!-- <input type='hidden' name='action' value='update'>
+	 		<button class="button" type="submit">Update Info</button> -->
+	 		<input type='hidden' name='action' value='delete'>
+	 		<button class="button" type="submit">Delete Account</button>  			
 		</div>
 		</section>
 	</form>

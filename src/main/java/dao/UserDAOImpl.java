@@ -114,7 +114,7 @@ public class UserDAOImpl implements UserDAO {
 				Address address = new Address(street, province, country, zip, phone);
 				
 				customer.setAddress(address);	   	
-				System.out.println("current user: " + userName); 
+				System.out.println("current searching user: " + userName); 
 			   	
 			   	connection.close();
 		   	}
@@ -201,9 +201,11 @@ public class UserDAOImpl implements UserDAO {
 			
 		   	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
 			PreparedStatement statement = connection
-					.prepareStatement("delete from customer where username='?'");
+					.prepareStatement("delete from customer where username=?");
 			statement.setString(1, username);
-			statement.execute();
+			
+			System.out.println(statement.toString());		
+			statement.executeUpdate();
 			
 			connection.close();
 		} catch (Exception e) {

@@ -60,10 +60,10 @@ function validate() {
         alert("Phone should be filled out");
         document.forms["signUpForm"]["phone"].focus();
         return false;
-    } // check if the country data is missing
+    } // check if the country data is missing 
 
 	// direct to CustomerControllerForAdmin to insert new user to DB
-    document.forms["signUpForm"].action="customers?action=insert";
+    document.forms["signUpForm"].action="customers";
     document.forms["signUpForm"].method="get";
     
     console.log("Query String: "+ window.location.search);

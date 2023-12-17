@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDAO;
 import dao.UserDAOImpl;
@@ -47,11 +48,22 @@ public class UserController extends HttpServlet {
 		System.out.println("user: " + username + "; pass: " + password);
 		
 		if (username != null && password != null) {
+			// Retrieve current HTTPSession object. If none, create one.
+			HttpSession session = request.getSession(true);
+			synchronized (session) {  // synchronized to prevent concurrent updates 
+				
+				// Retrieve the current user's username for this session, if any. Otherwise, set from username parameter
+				String currentUser = (String) session.getAttribute("currentUser");
+				if (currentUser == null) {  // No currentUser, add request's user here
+					session.setAttribute("currentUser", username);  // Save it into session
+				}
+			}
 			
 			if (username.equals("admin@yorku.ca")) {
 				if (password.equals("pass")) {				
 					url = "/jsp/adminMain.jsp";		
 					flag = true;
+					request.setAttribute("user", "admin");
 				}
 				else {
 					response.setContentType("text/html"); //step 1 - typical servlet steps					

@@ -14,6 +14,11 @@
 			<span class="label" style="margin-left: 15px;"> List of ${param.user}  Users</span>
 		</c:if>
 	</div>
+	
+	<% String username = (String) session.getAttribute("currentUser"); %>
+	<script>
+		console.log("Current session user: "+ '<%=username%>');
+	</script> 
 
 	 
 	<table id="grid">
@@ -31,8 +36,7 @@
 		  <c:forEach items="${userList}" var="user">
 		  
 			<script>
-			  var baseUrl = window.location.origin;
-			  console.log("User +1");
+				console.log("User +1");
 			</script> 
 			
 			 <tr>
@@ -40,12 +44,10 @@
  			    <td>${user.password}</td>
 			    <td>${user.firstName}</td>
 			    <td>${user.lastName}</td>
-			    <td><!-- <form method='get' action="${initParam.paramC}?action=update">
-			    	<input type='hidden' size='3' name='todo' value='update'> 
-			    	<input type='hidden' size='3' name='username' value='" + ${user.username} + "'> 
-			    	</form>-->
-			    	<a href="/4413Project/${initParam.paramC}?action=update&username=${user.username}">
-			    	<input type="submit" value=Review/Update />
+			    <td>
+			    	<a href="/4413Project/${initParam.paramC}?action=review&username=${user.username}">
+			    	<!-- <input type="submit" value=Review/Update /> -->
+			    	<input type="submit" value=Review />
 			    	</a>
 		    	</td> 
 			</tr>   
