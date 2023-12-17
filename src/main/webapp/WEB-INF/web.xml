@@ -11,8 +11,8 @@
     <welcome-file>html/signIn.html</welcome-file>
   </welcome-file-list>
   <context-param>
-    <param-name>param1</param-name>
-    <param-value>products</param-value>
+    <param-name>paramI</param-name>
+    <param-value>items</param-value>
   </context-param>
   <context-param>
     <param-name>paramC</param-name>
@@ -64,5 +64,15 @@
   <servlet-mapping>
     <servlet-name>GetItemData</servlet-name>
     <url-pattern>/GetItemData</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ItemControllerForAdmin</display-name>
+    <servlet-name>ItemControllerForAdmin</servlet-name>
+    <servlet-class>restService.ItemControllerForAdmin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ItemControllerForAdmin</servlet-name>
+    <url-pattern>/ItemControllerForAdmin</url-pattern>
   </servlet-mapping>
 </web-app>

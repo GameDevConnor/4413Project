@@ -26,8 +26,8 @@
 			<span style="margin-left: 15px;" class="label">All Purchases</span></a>
 		</div></li>
 		<li><div>
-			<a class="link1" href="/4413Project/${initParam.paramP}?action=allItems">
-			<span class="label" style="margin-left: 15px;">All Products</span></a>
+			<a class="link1" href="/4413Project/${initParam.paramI}?action=allItems">
+			<span class="label" style="margin-left: 15px;">All Items</span></a>
 		</div></li>
 	</ul>
 <!-- 	<form class="search">

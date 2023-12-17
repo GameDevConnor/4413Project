@@ -18,8 +18,8 @@
 				</a>
 			</div></li>
 		<li><div>
-				<a class="link1" href="/4413Project/${initParam.paramP}?action=allItems"><span
-					style="margin-left: 15px;" class="label">All Products</span></a>
+				<a class="link1" href="/4413Project/${initParam.paramI}?action=allItems"><span
+					style="margin-left: 15px;" class="label">All Items</span></a>
 			</div></li>
 		<li><div>
 				<span class="label" style="margin-left: 15px;">Categories </span>
