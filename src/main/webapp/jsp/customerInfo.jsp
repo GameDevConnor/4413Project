@@ -99,7 +99,7 @@
 		
 		<section class="sec5">
 		<h2>Purchase Histories</h2>
-			<jsp:include page="listOfPurchaseHistries.jsp" flush="true" />
+			<jsp:include page="listOfPurchaseOrders.jsp" flush="true" />
 		</section>
 
 		<section class="sec6">

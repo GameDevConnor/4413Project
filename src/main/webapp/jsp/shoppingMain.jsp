@@ -46,7 +46,7 @@
         </script>
                 
         <br />
-        <jsp:include page="leftColumnForProducts.jsp" flush="true" />
+        <jsp:include page="leftColumnForItems.jsp" flush="true" />
         <span class="label" style="margin-left: 15px;">Featured Products</span>
         <table id="featuredProducts">
             <tr>

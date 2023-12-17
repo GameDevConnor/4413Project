@@ -17,13 +17,13 @@
 
 		<jsp:include page="header.jsp" flush="true" />
 		<br />
-		<jsp:include page="leftColumnForProducts.jsp" flush="true" />
+		<jsp:include page="leftColumnForItems.jsp" flush="true" />
 		
 		<div>
 			<span class="label" style="margin-left: 15px;">Search results</span>
 		</div>
 
-		<jsp:include page="listOfProducts.jsp" flush="true" />
+		<jsp:include page="listOfItems.jsp" flush="true" />
 
 
 
