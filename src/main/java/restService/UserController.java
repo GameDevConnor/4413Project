@@ -70,7 +70,7 @@ public class UserController extends HttpServlet {
 					UserDAO userDao = new UserDAOImpl();
 					User user = userDao.searchUsersByKeyword(username);
 					if (user == null) {
-						url = "/html/signUp.html";
+						url = "/jsp/signUp.jsp";
 						request.setAttribute("username", username);
 						request.setAttribute("password", password);
 						flag = true;

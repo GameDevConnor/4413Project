@@ -24,28 +24,28 @@
 		<form class='infoForm' name="infoForm" onsubmit="return validate()">
 
 		<div class="parallel">
-		<section class="sec1">
-		<h2>Login Info</h2>
-		<p>
-			<b><label for="username">Username: ${user.username}</label></b>
-		</p>
-		<p>
-			<b><label for="password">Password: *</label></b>
-			<input id='password' name='password' type="text" value=${user.password} required> 
-		</p>
-		</section>
-		
-		<section class="sec2">
-		<h2>Full Name</h2>
-		<p>
-			<b><label for="firstname">First Name: *</label></b>
-            <input id='firstname' name='firstname' type="text" value=${user.firstName} required>
-		</p>
-		<p>
-            <b><label for="lastname">Last Name: *</label></b>
-            <input id='lastname' name='lastname' type="text" value=${user.lastName} required> 
-		</p>
-		</section>
+			<section class="sec1">
+			<h2>Login Info</h2>
+			<p>
+				<b><label for="username">Username: ${user.username}</label></b>
+			</p>
+			<p>
+				<b><label for="password">Password: *</label></b>
+				<input id='password' name='password' type="text" value=${user.password} required> 
+			</p>
+			</section>
+			
+			<section class="sec2">
+			<h2>Full Name</h2>
+			<p>
+				<b><label for="firstname">First Name: *</label></b>
+	            <input id='firstname' name='firstname' type="text" value=${user.firstName} required>
+			</p>
+			<p>
+	            <b><label for="lastname">Last Name: *</label></b>
+	            <input id='lastname' name='lastname' type="text" value=${user.lastName} required> 
+			</p>
+			</section>
 		</div>
 <!-- 
 		<section class="sec3">
