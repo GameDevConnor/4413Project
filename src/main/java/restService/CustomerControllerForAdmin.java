@@ -38,7 +38,6 @@ public class CustomerControllerForAdmin extends HttpServlet {
 		String url = base + "adminMain.jsp";
 		String action = request.getParameter("action");
 		String username = request.getParameter("username");
-		String category = request.getParameter("PH");
 		String keyWord = request.getParameter("keyWord");
 		
 		if (action != null) {
@@ -53,10 +52,6 @@ public class CustomerControllerForAdmin extends HttpServlet {
 				url = base + "customerInfo.jsp";
 				break;
 			}
-//			case "allPH":
-//				findBooksByCategory(request, response, category);
-//				url = base + "category.jsp?category=" + category;
-//				break;
 			case "searchUser":
 				searchUsersByKeyword(request, response, keyWord);
 				url = base + "searchUserResult.jsp";

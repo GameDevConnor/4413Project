@@ -48,34 +48,38 @@ public class UserController extends HttpServlet {
 		
 		if (username != null && password != null) {
 			
-		if (username.equals("admin")) {
-			if (password.equals("pass")) {				
-				url = "/jsp/adminMain.jsp";		
-				flag = true;
+			if (username.equals("admin")) {
+				if (password.equals("pass")) {				
+					url = "/jsp/adminMain.jsp";		
+					flag = true;
+				}
+				else {
+					response.setContentType("text/html"); //step 1 - typical servlet steps					
+					PrintWriter out = response.getWriter(); //step 2 - typical servlet steps
+					out.println("<!DOCTYPE html>");
+					out.println("<h1>Incorrect Password!</h1>");
+					RequestDispatcher dis = request.getRequestDispatcher(url);
+					dis.include(request, response);
+					out.close();
+					flag = false;
+				}
 			}
 			else {
-				response.setContentType("text/html"); //step 1 - typical servlet steps
-				
-				PrintWriter out = response.getWriter(); //step 2 - typical servlet steps
-				out.println("<!DOCTYPE html>");
-				out.println("<h1>Incorrect Password!</h1>");
-				RequestDispatcher dis = request.getRequestDispatcher(url);
-				dis.include(request, response);
-				out.close();
-				flag = false;
-			}
-		}
-		else {
-			try {
-				// calling DAO method to retrieve a user by their username
-				UserDAO userDao = new UserDAOImpl();
-				User user = userDao.searchUsersByKeyword(username);
-				if (!user.equals(null)) {
-					if (user.getPassword().equals(password)){
-						request.setAttribute("user", user);
-						url = "/jsp/shoppingMain.jsp";
+				try {
+					// calling DAO method to retrieve a user by their username
+					UserDAO userDao = new UserDAOImpl();
+					User user = userDao.searchUsersByKeyword(username);
+					if (user == null) {
+						url = "/html/signUp.html";
+						request.setAttribute("username", username);
+						request.setAttribute("password", password);
 						flag = true;
 					}
+					else if (user.getPassword().equals(password)){
+							request.setAttribute("user", user);
+							url = "/jsp/shoppingMain.jsp";
+							flag = true;
+						}
 					else {
 						response.setContentType("text/html"); //step 1 - typical servlet steps
 						PrintWriter out = response.getWriter(); //step 2 - typical servlet steps
@@ -86,26 +90,21 @@ public class UserController extends HttpServlet {
 						out.close();
 						flag = false;
 					}
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.out.println(e);
 				}
-				else {
-					url = "/html/signUp.html";
-					request.setAttribute("username", username);
-					request.setAttribute("password", password);
-					flag = true;
-				}
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-				System.out.println(e);
+	
 			}
-
-		}
 		}
 		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher(url);
-		requestDispatcher.forward(request, response);
-//		System.out.println(request.getContextPath());
-//		response.sendRedirect(request.getContextPath() + url);
+		if (flag) {
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher(url);
+			requestDispatcher.forward(request, response);
+			//System.out.println(request.getContextPath());
+			//response.sendRedirect(request.getContextPath() + url);
+		}
 	}
 
 	/**
