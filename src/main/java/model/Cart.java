@@ -86,6 +86,10 @@ public class Cart {
 	   return totalPrice;
    }
    
+   public List<Item> getCart() {
+	   return this.cart;
+   }
+   
    
    
 }

@@ -124,6 +124,12 @@ public class ItemControllerForAdmin extends HttpServlet {
 					flag = true;
 					break;					
 				}
+				case "checkout": {
+					
+					url = "/items?action=allItems";					
+					flag = true;
+					break;
+				}
 			}
 		}
 		

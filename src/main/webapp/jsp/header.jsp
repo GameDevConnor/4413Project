@@ -18,7 +18,7 @@
 	<div class="headerButtons">
 
 		<c:if test="${sessionScope.currentUser ne 'admin@yorku.ca'}">
-			<a id="visible" href="">Shopping Cart</a> 
+			<a id="visible" href="/4413Project/${initParam.paramI}?action=add&id=${item.id}">Shopping Cart</a> 
 			<a id="visible" href="/4413Project/${initParam.paramC}?action=review&username=${sessionScope.currentUser}">View Profile</a>
         </c:if>
 		
