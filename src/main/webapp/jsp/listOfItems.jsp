@@ -20,7 +20,7 @@
 	<table id="grid">
 		<thead>
 			<tr>
-				<th id="th-name">Product Name</th>
+				<th id="th-name">Name</th>
 				<th id="th-brand">Brand</th>
 				<th id="th-category">Category</th>
 				<th id="th-price">Price</th>		
@@ -44,32 +44,15 @@
 			    	<input type="submit" value='View Details' />
 			    	</a>
 		    	</td> 
-		    	
-		    	<!-- If current user is admin: display update button to update qty -->
-		    	<!-- If current user is customer: display add button to add to shopping cart -->
-	    		<!--<c:choose>
-					<c:when test="${sessionScope.currentUser eq 'admin@yorku.ca'}">
-						<td>
-					    	<a href="/4413Project/${initParam.paramI}?action=update&id=${item.id}">
-					    	<input type="submit" value='Update' />
-					    	</a>
-				    	</td> 
-					</c:when>
-					<c:otherwise>-->
-						<td>
-					    	<a href="/4413Project/${initParam.paramI}?action=add&id=${item.id}">
-					    	<input type="submit" value='Add To Cart' />
-					    	</a>
-				    	</td> 
-					<!--</c:otherwise>
-				</c:choose>-->		    	
+
+				<td>
+			    	<a href="/4413Project/${initParam.paramI}?action=add&id=${item.id}">
+			    	<input type="submit" value='Add To Cart' />
+			    	</a>
+		    	</td> 	    	
 			</tr>   
            </c:forEach>
 		</tbody>
 	</table>
-<!-- 	<c:if test="${sessionScope.currentUser eq 'admin@yorku.ca'}">
-		<br />
-		<input class="addNew" type="submit" value='Add New Item' />
-	</c:if> -->
 </body>
 </html>

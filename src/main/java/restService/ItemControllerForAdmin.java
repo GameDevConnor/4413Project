@@ -35,8 +35,19 @@ public class ItemControllerForAdmin extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Retrieve current signed in user's username
+		HttpSession session = request.getSession(true);
+		String currentUser = (String) session.getAttribute("currentUser");
+		String url = "";
+		
 		String base = "/jsp/";
-		String url = base + "adminMain.jsp";
+		if (currentUser.equals("admin@yorku.ca")) {		
+			url = base + "adminMain.jsp";
+		}
+		else {
+			url = base + "shoppingMain.jsp";
+		}		
+		
 		String action = request.getParameter("action");
 		String keyWord = request.getParameter("keyWord");
 		String id = request.getParameter("id");
@@ -49,9 +60,7 @@ public class ItemControllerForAdmin extends HttpServlet {
 			case "allItems": {
 				findAllItems(request, response);
 
-				// Retrieve current signed in user's username
-				HttpSession session = request.getSession(true);
-				String currentUser = (String) session.getAttribute("currentUser");
+				
 				
 				// if current user is admin, direct to listOfItemsStructureForAdmin.jsp
 				if (currentUser.equals("admin@yorku.ca")) {
