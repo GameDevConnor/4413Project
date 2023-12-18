@@ -40,28 +40,33 @@
  			    <td id="tr-brand">${item.brand}</td>
 			    <td id="tr-category">${item.category}</td>
 			    <td id="tr-price">${item.price}</td> 
-			    <td id="tr-qty"><input name="'qty'+${item.id}" type="number" value='${item.quantity}' /></td>
+			    <td id="tr-qty"><input name="'qty'+${item.id}" type="number" value='${item.quantity}' step="1"/></td>
 
 				<td id="tr-button">
-			    	<a href="/4413Project/${initParam.paramI}?action=update&id=${item.id}">
+			    	<a href="/4413Project/${initParam.paramI}?action=update&id=${item.id}&qty=">
 			    	<input type="submit" value='Update' />
+			    	</a>
+			    	<a href="/4413Project/${initParam.paramI}?action=delete&id=${item.id}">
+			    	<input type="submit" value='Delete' />
 			    	</a>
 		    	</td> 	    	
 			</tr>   
            </c:forEach>
            
 			<tr>
-				<td id="tr-id"><input name="id" type="text" /></td>
-				<td id="tr-name"><input name="name" type="text" /></td>
-				<td id="tr-dsec"><input name="dsec" type="text" /></td>
- 			    <td id="tr-brand"><input name="brand" type="text" /></td>
-			    <td id="tr-category"><input name="catgory" type="text" /></td>
-			    <td id="tr-price"><input name="price" type="text" /></td> 
-			    <td id="tr-qty"><input name="qty" type="text" /></td>
-			    <td id="tr-button">
-			    	<a href="/4413Project/${initParam.paramI}?action=add&id=${item.id}">
-			    	<input type="submit" value='Add New' />
-			    	</a>
+				<td id="tr-id"><input id="id" type="text" /></td>
+				<td id="tr-name"><input id="name" type="text" /></td>
+				<td id="tr-dsec"><input id="dsec" type="text" /></td>
+ 			    <td id="tr-brand"><input id="brand" type="text" /></td>
+			    <td id="tr-category"><input id="category" type="text" /></td>
+			    <td id="tr-price"><input id="price" type="number" step="0.01" /></td> 
+			    <td id="tr-qty"><input id="qty" type="number" step="1"/></td>
+			    <td id="tr-buttonAdd">
+			    	<button onclick="insert(this)">Add New</button>
+			    	
+			    	<!-- <a href="/4413Project/${initParam.paramI}?action=insert">
+				    	<input type="submit" value='Add New' />
+			    	</a> -->
 		    	</td> 	    	
 			</tr>	
 		</tbody>

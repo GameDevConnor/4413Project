@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="/4413Project/css/itemForAdmin.css" type="text/css" />
 	<link rel="stylesheet" href="/4413Project/css/admin.css" type="text/css" />
 	<script src="/4413Project/js/jquery-1.9.1.js"></script>
-	<script src="/4413Project/js/shopping.js" type="text/javascript"></script>
+	<script src="/4413Project/js/itemForAdmin.js" type="text/javascript"></script>
 	<title>Admin - Items</title>
 </head>
 

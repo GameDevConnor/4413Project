@@ -50,22 +50,30 @@ table tr td,th {
 }
 
 #th-id, #tr-id > input {
-	width: 50px;
+	width: 30px;
 }
 #th-dsec, #tr-dsec > input {
-	width: 135px;
+	width: 150px;
 }
 
-#th-brand, #tr-brand > input, #th-category, #tr-category > input {
+#th-category, #tr-category > input {
 	width: 60px;
 }
 
-#th-price, #tr-price > input, #th-qty, #tr-qty > input {
-	width: 50px;
+#th-brand, #tr-brand > input, #th-price, #tr-price > input, #th-qty, #tr-qty > input {
+	width: 40px;
 }
 
-#th-name, #tr-name > input, #th-button, #tr-button input{
-	width: 70px;
+#th-name, #tr-name > input, #th-button {
+	width: 75px;
+}
+
+#tr-button input {
+	width: 48px;
+}
+
+#tr-buttonAdd input {
+	width: 80px;
 }
 
 .classEven {

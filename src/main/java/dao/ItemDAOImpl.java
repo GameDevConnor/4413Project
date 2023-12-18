@@ -111,8 +111,7 @@ public class ItemDAOImpl implements ItemDAO {
 		itemqueryString += ";";
 	   	System.out.println(itemqueryString);
 
-	   	try {
-				
+	   	try {				
 	   	 Class.forName("com.mysql.cj.jdbc.Driver");
 	   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
 	   	 
@@ -156,6 +155,8 @@ public class ItemDAOImpl implements ItemDAO {
 					.prepareStatement("delete from item where id=?;");
 			statement.setString(1, itemID);
 			statement.execute();
+			
+			System.out.println(statement.toString());		
 			
 			connection.close();
 		} catch (Exception e) {

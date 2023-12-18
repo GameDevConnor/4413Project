@@ -1,6 +1,9 @@
 package restService;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -71,16 +74,37 @@ public class ItemControllerForAdmin extends HttpServlet {
 					flag = true;
 					break;				
 				}
-				case "add": {					
-					// if current user is admin, add item to inventory
-					if (currentUser.equals("admin@yorku.ca")) {
-						url = base + "listOfItemsStructureForAdmin.jsp";					
-					}					
-					// if current user is customer, add item to shopping cart
-					else {
-						addToCart(request, response, id);
-						url = base + "cartStructure.jsp";
-					}
+				case "add": {										
+					// current user is customer, add item to shopping cart
+					addToCart(request, response, id);
+					url = base + "cartStructure.jsp";
+
+					flag = true;
+					break;					
+				}
+				case "insert": {
+					// current user is admin, add item to DB		
+					String itemId = request.getParameter("id");
+					String name = request.getParameter("name");
+					String description = request.getParameter("dsec");
+					String category = request.getParameter("category");
+					String brand = request.getParameter("brand");					
+					int quantity = Integer.parseInt(request.getParameter("qty"));
+					float price = Float.parseFloat(request.getParameter("price"));
+					
+					System.out.println("Insert id: " + itemId + " name: " + name);
+
+					Item item = new Item(itemId, name, description, category, brand, quantity, price);	
+					
+					insertItem(request, response, item, quantity);				
+					url = "/items?action=allItems"; // Redirect to All Items screen once added
+					flag = true;
+					break;
+				}
+				case "delete": {										
+					deleteItem(request, response, id);
+					url = "/items?action=allItems";
+					System.out.println("Remove id: " + id);
 					flag = true;
 					break;					
 				}
@@ -143,6 +167,30 @@ public class ItemControllerForAdmin extends HttpServlet {
 			e.printStackTrace();
 			System.out.println(e);
 		}
+	}
+	
+	private void insertItem(HttpServletRequest request,
+			HttpServletResponse response, Item item, int quantity) throws ServletException, IOException {
+		try {
+			// calling DAO method to insert an item
+			ItemDAO itemDao = new ItemDAOImpl();
+			itemDao.insert(item, quantity);
+			//request.setAttribute("item", item);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void deleteItem(HttpServletRequest request,
+			HttpServletResponse response, String id) throws ServletException, IOException {
+		try {
+			// calling DAO method to remove an item
+			ItemDAO itemDao = new ItemDAOImpl();
+			itemDao.delete(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
 	}
 
 }
