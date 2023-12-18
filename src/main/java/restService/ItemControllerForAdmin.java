@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.ItemDAO;
 import dao.ItemDAOImpl;
+import model.Cart;
 import model.Item;
 
 /**
@@ -38,17 +39,28 @@ public class ItemControllerForAdmin extends HttpServlet {
 		String url = base + "adminMain.jsp";
 		String action = request.getParameter("action");
 		String keyWord = request.getParameter("keyWord");
+		String id = request.getParameter("id");
 		Boolean flag = true; // flag used to identify if forward dispatcher should be called
 		
 		System.out.println(request.getQueryString());
 		
 		if (action != null) {
 			switch (action) {
-			case "allItems":
+			case "allItems": {
 				findAllItems(request, response);
 				url = base + "listOfItemsStructure.jsp";
 				flag = true;
 				break;
+			}
+			case "add": {
+				addToCart(request, response, id);
+				url = base + "cartStructure.jsp";
+				flag = true;
+				break;
+				
+			}
+			
+			
 			}
 		}
 		
@@ -75,6 +87,35 @@ public class ItemControllerForAdmin extends HttpServlet {
 			ItemDAO itemDao = new ItemDAOImpl();
 			List<Item> itemList = itemDao.findAllItems();
 			request.setAttribute("itemList", itemList);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+	}
+	
+	private void addToCart(HttpServletRequest request,
+			HttpServletResponse response, String id) throws ServletException, IOException {
+		// list all items for admin management
+		try {
+			HttpSession session = request.getSession(true);
+			Cart cart;
+		      synchronized (session) {  // synchronized to prevent concurrent updates
+		         // Retrieve the shopping cart for this session, if any. Otherwise, create one.
+		         cart = (Cart) session.getAttribute("cart");
+		         if (cart == null) {  // No cart, create one.
+		            cart = new Cart();
+//		            session.setAttribute("cart", cart);  // Save it into session
+		         }
+		      }
+			// calling DAO method to retrieve a list of all items 
+			ItemDAO itemDao = new ItemDAOImpl();
+			Item item = itemDao.findItemById(id);
+			if (!cart.containsItem(item.getId())) {
+				cart.add(item);
+			}
+//			cart.add(item);
+            session.setAttribute("cart", cart);  // Save it into session
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(e);

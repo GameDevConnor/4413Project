@@ -19,6 +19,10 @@
     <param-value>customers</param-value>
   </context-param>
   <context-param>
+    <param-name>paramPO</param-name>
+    <param-value>purchase</param-value>
+  </context-param>
+  <context-param>
     <param-name>imageURL</param-name>
     <param-value>images</param-value>
   </context-param>

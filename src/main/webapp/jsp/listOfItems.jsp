@@ -57,7 +57,7 @@
 					</c:when>
 					<c:otherwise>
 						<td>
-					    	<a href="/4413Project/${initParam.paramPO}?action=add&id=${item.id}">
+					    	<a href="/4413Project/${initParam.paramI}?action=add&id=${item.id}">
 					    	<input type="submit" value='Add To Cart' />
 					    	</a>
 				    	</td> 
