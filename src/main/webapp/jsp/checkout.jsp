@@ -31,11 +31,12 @@ cart.clear();
 
 
 <c:forEach items="${sessionScope.purchases.items}" var="e">
-<tr><td> ${e.name} </td>
-<td> ${e.description} </td>
-<td> ${e.category} </td>
-<td> ${e.brand} </td>
-<td> ${e.price} </td>
+<tr><td> ${e.item.name} </td>
+<td> ${e.item.description} </td>
+<td> ${e.item.category} </td>
+<td> ${e.item.brand} </td>
+<td> ${e.item.price} </td>
+<td> ${e.quantity} </td>
 
 
 </c:forEach>

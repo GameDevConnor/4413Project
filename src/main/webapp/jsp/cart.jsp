@@ -86,10 +86,11 @@ else {
 <p>Total Price: <%= message %></p>
 
 
-<a href="/4413Project/${initParam.paramI}?action=checkout&id=${item.id}">
+
+  <a class="link1" href="/4413Project/${initParam.paramI}?action=checkout">
 			    	<!-- <input type="submit" value='Review/Update' /> -->
-			    	<input type="submit" value='Check Out' />
-			    	</a>
+			    	<input type="submit" value='Check Out' /> 
+			   	</a>
 
 
 </body>
