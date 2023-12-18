@@ -14,7 +14,7 @@
 		var qty = document.getElementById("qty").value;
 	
 	    var formHtml = `
-	        <form action="/4413Project/items" method="get">
+	        <form id="addItem" action="/4413Project/items" method="get">
 	            <input type="hidden" name="id" value="${id}">
 	            <input type="hidden" name="name" value="${name}">
 	            <input type="hidden" name="dsec" value="${dsec}">
@@ -29,4 +29,6 @@
 	    `;
 	
 	    row.cells[7].innerHTML = formHtml;
+	    var addItem = document.getElementById('addItem');
+        addItem.submit();
 }

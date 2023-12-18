@@ -26,12 +26,13 @@ form {
     font-family: 'Arial', sans-serif;
 }
 
-button {	
+#signOut {	
     cursor: pointer;
     background:#777da6;
 	color: white;
 	border: none;
-	padding: 0.1em;
+	border-radius: 5px;
+	padding: 0.2em;
 	font-size: 15px;
 	font-weight: bold;
 }
@@ -43,7 +44,8 @@ button {
     background:#777da6;
 	color: white;
 	border: none;
-	padding: 0.1em;
+	border-radius: 5px;
+	padding: 0.2em;
 }
 
 form {

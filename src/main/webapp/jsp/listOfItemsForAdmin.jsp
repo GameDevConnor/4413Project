@@ -40,7 +40,7 @@
  			    <td id="tr-brand">${item.brand}</td>
 			    <td id="tr-category">${item.category}</td>
 			    <td id="tr-price">${item.price}</td> 
-			    <td id="tr-qty"><input name="'qty'+${item.id}" type="number" value='${item.quantity}' step="1"/></td>
+			    <td id="tr-qty"><input name="'qty'+${item.id}" type="number" value='${item.quantity}' min="0" step="1"/></td>
 
 				<td id="tr-button">
 			    	<a href="/4413Project/${initParam.paramI}?action=update&id=${item.id}&qty=">
@@ -59,10 +59,10 @@
 				<td id="tr-dsec"><input id="dsec" type="text" /></td>
  			    <td id="tr-brand"><input id="brand" type="text" /></td>
 			    <td id="tr-category"><input id="category" type="text" /></td>
-			    <td id="tr-price"><input id="price" type="number" step="0.01" /></td> 
-			    <td id="tr-qty"><input id="qty" type="number" step="1"/></td>
+			    <td id="tr-price"><input id="price" type="number" min="0" step="0.01" /></td> 
+			    <td id="tr-qty"><input id="qty" type="number" min="0" step="1"/></td>
 			    <td id="tr-buttonAdd">
-			    	<button onclick="insert(this)">Add New</button>
+			    	<button class="buttonAdd" onclick="insert(this)">Add New</button>
 			    	
 			    	<!-- <a href="/4413Project/${initParam.paramI}?action=insert">
 				    	<input type="submit" value='Add New' />

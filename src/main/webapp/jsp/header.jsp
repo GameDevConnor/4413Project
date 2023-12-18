@@ -24,7 +24,7 @@
 		
 		<!-- Servlet: go to CustomerControllerForAdmin, sign out, and remove the current session user -->		
 		<form class='signOut' name="signOut" action="/4413Project/customers">	
-			<button type="submit">Sign Out</button>
+			<button id="signOut" type="submit">Sign Out</button>
 			<input type='hidden' name='action' value='signOut'>
 		</form>
 	</div>
