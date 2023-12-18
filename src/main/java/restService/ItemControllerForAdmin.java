@@ -48,9 +48,21 @@ public class ItemControllerForAdmin extends HttpServlet {
 			switch (action) {
 			case "allItems": {
 				findAllItems(request, response);
-				url = base + "listOfItemsStructure.jsp";
+
+				// Retrieve current signed in user's username
+				HttpSession session = request.getSession(true);
+				String currentUser = (String) session.getAttribute("currentUser");
+				
+				// if current user is admin, direct to listOfItemsStructureForAdmin.jsp
+				if (currentUser.equals("admin@yorku.ca")) {
+					url = base + "listOfItemsStructureForAdmin.jsp";					
+				}
+				// if current user is customer, direct to listOfItemsStructure.jsp
+				else {
+					url = base + "listOfItemsStructure.jsp";
+				}
 				flag = true;
-				break;
+				break;				
 			}
 			case "add": {
 				addToCart(request, response, id);

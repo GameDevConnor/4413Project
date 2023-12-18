@@ -6,35 +6,17 @@ body {
 }
 
 #centered {
-	width: 800px;
+	width: 900px;
 	text-align: left;
 	border: 0px;
 	padding: 0;
 	margin: 0 auto;
 }
 
-.header {
-	height: 80px;
-	color: #f9f3e9;
-	background: rgb(192, 196, 214);
-}
-
 .label {
 	color: #594A8C;
 	font-weight: bold;
 	font-family: "Calibri", Georgia, Serif;
-}
-
-.leftbar {
-	float: left;
-	height: 310px;
-	width: 150px;
-	background: #FFFFFF;
-	border: 1px solid rgb(192, 196, 214);
-}
-
-.search {
-	margin-left: 15px;
 }
 
 table {
@@ -67,30 +49,36 @@ table tr td,th {
 	padding: 2px;
 }
 
-#th-name {
-	width: 300px;
+#th-id, #tr-id > input {
+	width: 50px;
+}
+#th-dsec, #tr-dsec > input {
+	width: 135px;
 }
 
-#th-brand, #th-category {
-	width: 200px;
+#th-brand, #tr-brand > input, #th-category, #tr-category > input {
+	width: 60px;
 }
 
-#th-price, #th-qty {
-	width: 100px;
+#th-price, #tr-price > input, #th-qty, #tr-qty > input {
+	width: 50px;
 }
 
-#th-button {
-	width: 100px;
-}
-
-#th-button2 {
-	width: 100px;
+#th-name, #tr-name > input, #th-button, #tr-button input{
+	width: 70px;
 }
 
 .classEven {
 	background-color: rgb(192, 196, 214);
 }
 
+.addNew {
+	position: fixed;
+
+    right: 15%; 
+    /*transform: translateY(-50%);  Center the button vertically 
+    border: none;*/
+}
 
 a:link {
 	font-family: arial, monospace;
@@ -134,48 +122,4 @@ span.tooltip_img1 {
 	font-weight: bold;
 	text-align: center;
 	position: relative;*/
-}
-
-div.message {
-	background-color: #04FF97;
-	color: #000000;
-	position: absolute;
-	left: 18px;
-	top: -18px;
-	z-index: 1000000;
-	text-align: left;
-	width: 280px;
-}
-
-#menu {
-	list-style: none;
-	padding: 0 0 0 0;
-	width: 80%;
-	margin: 10px 10px 10px 10px;
-}
-
-#menu li {
-	display: block;
-	background-color: rgb(192, 196, 214);
-	font-weight: bold;
-	font-family: "Calibri", Georgia, Serif;
-	color: white;
-	text-align: left;
-	margin: 1px;
-	cursor: pointer;
-	padding: 10px 0 0 0;
-}
-
-#menu ul {
-	list-style: none;
-	padding: 10px 0 0 0;
-	display: none;
-}
-
-#menu ul li {
-	font-weight: bold;
-	cursor: auto;
-	background-color: #fff;
-	padding: 0 0 0 7px;
-	text-align: left;
 }

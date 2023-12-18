@@ -47,7 +47,7 @@
 		    	
 		    	<!-- If current user is admin: display update button to update qty -->
 		    	<!-- If current user is customer: display add button to add to shopping cart -->
-	    		<c:choose>
+	    		<!--<c:choose>
 					<c:when test="${sessionScope.currentUser eq 'admin@yorku.ca'}">
 						<td>
 					    	<a href="/4413Project/${initParam.paramI}?action=update&id=${item.id}">
@@ -55,21 +55,21 @@
 					    	</a>
 				    	</td> 
 					</c:when>
-					<c:otherwise>
+					<c:otherwise>-->
 						<td>
 					    	<a href="/4413Project/${initParam.paramI}?action=add&id=${item.id}">
 					    	<input type="submit" value='Add To Cart' />
 					    	</a>
 				    	</td> 
-					</c:otherwise>
-				</c:choose>		    	
+					<!--</c:otherwise>
+				</c:choose>-->		    	
 			</tr>   
            </c:forEach>
 		</tbody>
 	</table>
-	<c:if test="${sessionScope.currentUser eq 'admin@yorku.ca'}">
+<!-- 	<c:if test="${sessionScope.currentUser eq 'admin@yorku.ca'}">
 		<br />
 		<input class="addNew" type="submit" value='Add New Item' />
-	</c:if>
+	</c:if> -->
 </body>
 </html>
