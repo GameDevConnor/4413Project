@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="/4413Project/css/admin.css" type="text/css" />
 	<script type="text/javascript" src="/4413Project/js/jquery-1.9.1.js"></script>
 	<script src="/4413Project/js/admin.js"></script>
+	<title>Admin - Main</title>
 </head>
 <body>
 	<div id="centered">

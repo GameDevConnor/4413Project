@@ -64,7 +64,7 @@ function validate() {
 
 	// direct to CustomerControllerForAdmin to insert new user to DB
     document.forms["signUpForm"].action="customers";
-    document.forms["signUpForm"].method="get";
+    document.forms["signUpForm"].method="post";
     
     console.log("Query String: "+ window.location.search);
   }  // validate various form components

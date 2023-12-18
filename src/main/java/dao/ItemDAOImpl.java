@@ -23,9 +23,8 @@ public class ItemDAOImpl implements ItemDAO {
 		
 		String queryString = "select * from item;";
 	   	System.out.println(queryString);
-	   	
-	   	
-	   	 try {
+   	
+	   	try {
 				
 	   	 Class.forName("com.mysql.cj.jdbc.Driver");
 	   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
@@ -33,8 +32,7 @@ public class ItemDAOImpl implements ItemDAO {
 	   	 java.sql.Statement statement = connection.createStatement();
 	   	 
 	   	 ResultSet resultSet = statement.executeQuery(queryString);
-	   	
-	   	 
+   	 
 	   	 while (resultSet.next()) {
 			String id = resultSet.getString("id");
 			String name = resultSet.getString("itemName");
@@ -43,27 +41,17 @@ public class ItemDAOImpl implements ItemDAO {
 			String brand = resultSet.getString("brand");
 			int quantity = resultSet.getInt("quantity");
 			float price = resultSet.getFloat("price");
-
-			
+		
 			Item item = new Item(id, name, description, category, brand, quantity, price);
 
-
 			items.add(item);
-			
-			
 		}
-
-	   	
-	   	 
 	   	 
 	   	 connection.close();
 	   	} catch (Exception e) {
-			// TODO: handle exception
 	   		e.printStackTrace();
 		}
 	   	
-		
-		
 		return items;
 	}
 
@@ -84,8 +72,7 @@ public class ItemDAOImpl implements ItemDAO {
 				+ " or category like '%" + keyWord.trim() + "%'"
 				+ " or brand like '%" + keyWord.trim() + "%'";
 
-		try {
-			
+		try {			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		   	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
 		   	 
@@ -93,8 +80,7 @@ public class ItemDAOImpl implements ItemDAO {
 
 
 			ResultSet resultSet = statement.executeQuery(sql);
-			while (resultSet.next()) {
-				
+			while (resultSet.next()) {			
                 
 				String id = resultSet.getString("id");
 				String name = resultSet.getString("itemName");
@@ -103,14 +89,10 @@ public class ItemDAOImpl implements ItemDAO {
 				String brand = resultSet.getString("brand");
 				int quantity = resultSet.getInt("quantity");
 				float price = resultSet.getFloat("price");
-
-				
+			
 				Item item = new Item(id, name, description, category, brand, quantity, price);
-				
-
-				
-				result.add(item);
-				
+		
+				result.add(item);				
 			}
 			
 			connection.close();
@@ -128,10 +110,8 @@ public class ItemDAOImpl implements ItemDAO {
 		String itemqueryString = "select id from item where id = '" + item.getId() + "'";
 		itemqueryString += ";";
 	   	System.out.println(itemqueryString);
-		
-	
-		
-	   	 try {
+
+	   	try {
 				
 	   	 Class.forName("com.mysql.cj.jdbc.Driver");
 	   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
@@ -149,16 +129,13 @@ public class ItemDAOImpl implements ItemDAO {
 			int updateResultSet = updateStatement.executeUpdate(updateQuery);
              
 		 }
-		 else {
-			 
+		 else {			 
 			 String insertItemQueryString = "insert into item values ('" + item.getId() + "','" + item.getName() + "','" + item.getDescription() + "','" + item.getCategory() + "','" + item.getBrand() + "'," + item.getQuantity() + "," + item.getPrice() + ");";
 			 
 			 Statement insertStatement = connection.createStatement();
 		   	 
-			 int insertResultSet = insertStatement.executeUpdate(insertItemQueryString);
-			 
+			 int insertResultSet = insertStatement.executeUpdate(insertItemQueryString);			 
 		 }
-
 	   	 
 	   	 connection.close();
 	   	} catch (Exception e) {
@@ -172,8 +149,6 @@ public class ItemDAOImpl implements ItemDAO {
 		// TODO Auto-generated method stub
 		
 		try {
-
-
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 		   	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
@@ -186,7 +161,6 @@ public class ItemDAOImpl implements ItemDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 	@Override
@@ -195,10 +169,8 @@ public class ItemDAOImpl implements ItemDAO {
 		
 		String queryString = "select id from PO;";
 	   	System.out.println(queryString);
-	   	
-	   	
-	   	 try {
-				
+
+	   	try {				
 	   	 Class.forName("com.mysql.cj.jdbc.Driver");
 	   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
 	   	 
@@ -207,39 +179,32 @@ public class ItemDAOImpl implements ItemDAO {
 	   	 ResultSet resultSet = statement.executeQuery(queryString);
 	   	 
 	   	 int id = 0;
-	   	
-	   	 
+
 	   	 while (resultSet.next()) {
 			id = resultSet.getInt("id");
-			
 		 }
 
 	   	 PurchaseOrder po = new PurchaseOrder(id + 1, user, item);
-	   	 
-	   	 
+
 	   	 String insertItemQueryString = "insert into po values ('" + po.getId() + "','" + po.getUser().getUsername() + "','" + po.getItem().getId() + "','" + po.getDateOfCreation().toString() + "');";
 		 
 		 Statement insertStatement = connection.createStatement();
 	   	 
 		 int insertResultSet = insertStatement.executeUpdate(insertItemQueryString);
-	   	
-		 
+
 		 String updateQuery = "update item set quantity = quantity -" + quantity + " where id = '" + item.getId() + "';";
 	   		
 		 Statement updateStatement = connection.createStatement();
 			   	 
 		 int updateResultSet = updateStatement.executeUpdate(updateQuery);
-	   	 
-	   	 
+
 	   	 connection.close();
 	   	} catch (Exception e) {
-			// TODO: handle exception
 	   		e.printStackTrace();
 		}
-		
 	}
 	
-	 @Override
+	@Override
 	    public Item findItemById(String itemId) {
 	        Item item = null;
 	        String queryString = "SELECT * FROM item WHERE id = ?;";

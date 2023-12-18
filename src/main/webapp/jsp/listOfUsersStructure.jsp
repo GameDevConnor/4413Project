@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="/4413Project/css/admin.css" type="text/css" />
 	<script src="/4413Project/js/jquery-1.9.1.js"></script>
 	<script src="/4413Project/js/admin.js" type="text/javascript"></script>
+	<title>Admin - All Users</title>
 </head>
 
 <body>
