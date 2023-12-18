@@ -22,7 +22,7 @@ body {
 table {
 	border-spacing: 1.5px;
 }
-
+/*
 table thead tr {
 	font-family: Arial, monospace;
 	font-size: 14px;
@@ -47,7 +47,7 @@ table tr.classEven {
 
 table tr td,th {
 	padding: 2px;
-}
+}*/
 
 #th-id, #tr-id > input {
 	width: 30px;
@@ -60,36 +60,35 @@ table tr td,th {
 	width: 60px;
 }
 
-#th-brand, #tr-brand > input, #th-price, #tr-price > input, #th-qty, #tr-qty > input {
+#th-brand, #tr-brand > input, #th-price, #tr-price > input {
 	width: 40px;
 }
 
-#th-name, #tr-name > input, #th-button {
-	width: 75px;
+#th-name, #tr-name > input {
+	width: 70px;
 }
 
-#tr-button input {
-	width: 48px;
-	text-align: left;
+#th-qty, #tr-qty {
+	width: 100px;
 }
 
+#tr-qty input {
+	width: 50px;
+}
+/*
 .classEven {
 	background-color: rgb(192, 196, 214);
+}*/
+
+#th-button, #tr-dlt input {
+	width: 75px;
 }
 
 .buttonAdd {
 	cursor: pointer;
 	border-radius: 5px;
-	width: 90px;
+	width: 75px;
 	box-shadow: none;
-}
-
-.addNew {
-	position: fixed;
-
-    right: 15%; 
-    /*transform: translateY(-50%);  Center the button vertically 
-    border: none;*/
 }
 
 a:link {

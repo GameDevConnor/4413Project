@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 $(document).ready(function () {
 	  $("span.tooltip_message").hover(function () {
-	    $(this).append('<div class="message"><p>Search by Keyword in:<ul><li>Product Name</li><li>Product Brand <li>Product Category</li></ul></p></div>');
+	    $(this).append('<div class="message"><p>Search by Keyword in:<ul><li>Item Name</li><li>Item Brand <li>Item Category</li></ul></p></div>');
 	  },function () {
 	    $("div.message").remove();
 	  });/*

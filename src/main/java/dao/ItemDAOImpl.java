@@ -121,21 +121,22 @@ public class ItemDAOImpl implements ItemDAO {
 		 
 		 if (resultSet.next()) {
 			
-			String updateQuery = "update item set quantity = quantity +" + quantity + " where id = '" + item.getId() + "';";
+			String updateQuery = "update item set quantity = " + quantity + " where id = '" + item.getId() + "';";
 		   		
 		   	Statement updateStatement = connection.createStatement();
 			   	 
 			int updateResultSet = updateStatement.executeUpdate(updateQuery);
-             
+			System.out.println(updateStatement.toString());		
 		 }
 		 else {			 
 			 String insertItemQueryString = "insert into item values ('" + item.getId() + "','" + item.getName() + "','" + item.getDescription() + "','" + item.getCategory() + "','" + item.getBrand() + "'," + item.getQuantity() + "," + item.getPrice() + ");";
 			 
 			 Statement insertStatement = connection.createStatement();
 		   	 
-			 int insertResultSet = insertStatement.executeUpdate(insertItemQueryString);			 
+			 int insertResultSet = insertStatement.executeUpdate(insertItemQueryString);	
+			 System.out.println(insertStatement.toString());		
 		 }
-	   	 
+		 
 	   	 connection.close();
 	   	} catch (Exception e) {
 			// TODO: handle exception

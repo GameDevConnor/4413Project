@@ -15,9 +15,9 @@
     });
 	
 
-/*$(document).ready(function() {
+$(document).ready(function() {
 	$("#grid tr:even").addClass('classEven');
-});*/
+});
 
 
 $(document).ready(function () {

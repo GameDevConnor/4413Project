@@ -27,7 +27,7 @@
 				<th id="th-category">Category</th>
 				<th id="th-price">Price</th>		
 				<th id="th-qty">Quantity</th>			
-				<th id="th-button">Action</th>		
+				<th id="th-button"></th>	
 			</tr>
 		</thead>
 
@@ -39,13 +39,16 @@
 				<td id="tr-dsec">${item.description}</td>
  			    <td id="tr-brand">${item.brand}</td>
 			    <td id="tr-category">${item.category}</td>
-			    <td id="tr-price">${item.price}</td> 
-			    <td id="tr-qty"><input name="'qty'+${item.id}" type="number" value='${item.quantity}' min="0" step="1"/></td>
-
-				<td id="tr-button">
-			    	<a href="/4413Project/${initParam.paramI}?action=update&id=${item.id}&qty=">
-			    	<input type="submit" value='Update' />
-			    	</a>
+			    <td id="tr-price">${item.price}</td> 			    		
+			    <td id="tr-qty">			    
+			    	<form method='get'>
+					    <input type='hidden' size='3' name='action' value='update' />
+					    <input type='hidden' size='3' name='id' value='${item.id}' />
+					    <input name="qty${item.id}" type="number" value='${item.quantity}' min="0" step="1"/>
+						<input type='submit' value='Update' />
+					</form>
+		    	</td> 	
+		    	<td id="tr-dlt">
 			    	<a href="/4413Project/${initParam.paramI}?action=delete&id=${item.id}">
 			    	<input type="submit" value='Delete' />
 			    	</a>
@@ -63,10 +66,6 @@
 			    <td id="tr-qty"><input id="qty" type="number" min="0" step="1"/></td>
 			    <td id="tr-buttonAdd">
 			    	<button class="buttonAdd" onclick="insert(this)">Add New</button>
-			    	
-			    	<!-- <a href="/4413Project/${initParam.paramI}?action=insert">
-				    	<input type="submit" value='Add New' />
-			    	</a> -->
 		    	</td> 	    	
 			</tr>	
 		</tbody>

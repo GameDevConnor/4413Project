@@ -83,7 +83,7 @@ public class ItemControllerForAdmin extends HttpServlet {
 					break;					
 				}
 				case "insert": {
-					// current user is admin, add item to DB		
+					// Admin - add item to DB		
 					String itemId = request.getParameter("id");
 					String name = request.getParameter("name");
 					String description = request.getParameter("dsec");
@@ -101,10 +101,26 @@ public class ItemControllerForAdmin extends HttpServlet {
 					flag = true;
 					break;
 				}
-				case "delete": {										
+				case "delete": {	
+					// Admin - delete item from DB		
 					deleteItem(request, response, id);
 					url = "/items?action=allItems";
 					System.out.println("Remove id: " + id);
+					flag = true;
+					break;					
+				}
+				case "update": {
+					// Admin - update item quantity in DB		
+					// Get item by id using DAO
+					ItemDAO itemDao = new ItemDAOImpl();
+					Item item = itemDao.findItemById(id);
+					
+					// Get new qty from input and update db 
+					int qtyNew = Integer.parseInt(request.getParameter("qty" + id));					
+					System.out.println("Update id: " + id + " qty: " + qtyNew);
+					
+					insertItem(request, response, item, qtyNew);
+					url = "/items?action=allItems";					
 					flag = true;
 					break;					
 				}
