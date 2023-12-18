@@ -33,6 +33,11 @@
 		var category = document.getElementById("category").value;
 		var price = document.getElementById("price").value;
 		var qty = document.getElementById("qty").value;
+		
+		if (id == "" || name == "" || dsec == "" ||  brand == "" || category == "" || price == "" || qty == "") {
+        	alert("All fields should be filled out");
+	        return false;
+    	} // check if any field is missing
 	
 	    var formHtml = `
 	        <form id="addItem" action="/4413Project/items" method="get">
