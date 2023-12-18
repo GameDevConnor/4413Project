@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Cart {
  
-   private List<Item> cart;  // List of Books
+   private List<Item> cart;
    
     
    // constructor

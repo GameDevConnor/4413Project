@@ -52,7 +52,7 @@
 
 float totalPrice = 0;
 
-List<Purchase> purchases = new ArrayList<Purchase>();
+Purchase purchases = new Purchase();
 
 for (Item item : cart.getCart()) {
 	

@@ -126,7 +126,7 @@ public class ItemControllerForAdmin extends HttpServlet {
 				}
 				case "checkout": {
 					
-					url = "/items?action=allItems";					
+					url = base + "checkoutStructure.jsp";					
 					flag = true;
 					break;
 				}
