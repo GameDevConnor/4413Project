@@ -34,13 +34,13 @@
 		<tbody>
 		  <c:forEach items="${itemList}" var="item"> 
 			 <tr>
-			 	<td id="tr-id"><input type="text" value='${item.id}' /></td>
-				<td id="tr-name"><input type="text" value='${item.name}' /></td>
-				<td id="tr-dsec"><input type="text" value='${item.description}' /></td>
- 			    <td id="tr-brand"><input type="text" value='${item.brand}' /></td>
-			    <td id="tr-category"><input type="text" value='${item.category}' /></td>
-			    <td id="tr-price"><input type="text" value='${item.price}' /></td> 
-			    <td id="tr-qty"><input type="text" value='${item.quantity}' /></td>
+			 	<td id="tr-id">${item.id}</td>
+				<td id="tr-name">${item.name}</td>
+				<td id="tr-dsec">${item.description}</td>
+ 			    <td id="tr-brand">${item.brand}</td>
+			    <td id="tr-category">${item.category}</td>
+			    <td id="tr-price">${item.price}</td> 
+			    <td id="tr-qty"><input name="'qty'+${item.id}" type="number" value='${item.quantity}' /></td>
 
 				<td id="tr-button">
 			    	<a href="/4413Project/${initParam.paramI}?action=update&id=${item.id}">
@@ -51,13 +51,13 @@
            </c:forEach>
            
 			<tr>
-				<td id="tr-id"><input type="text" /></td>
-				<td id="tr-name"><input type="text" /></td>
-				<td id="tr-dsec"><input type="text" /></td>
- 			    <td id="tr-brand"><input type="text" /></td>
-			    <td id="tr-category"><input type="text" /></td>
-			    <td id="tr-price"><input type="text" /></td> 
-			    <td id="tr-qty"><input type="text" /></td>
+				<td id="tr-id"><input name="id" type="text" /></td>
+				<td id="tr-name"><input name="name" type="text" /></td>
+				<td id="tr-dsec"><input name="dsec" type="text" /></td>
+ 			    <td id="tr-brand"><input name="brand" type="text" /></td>
+			    <td id="tr-category"><input name="catgory" type="text" /></td>
+			    <td id="tr-price"><input name="price" type="text" /></td> 
+			    <td id="tr-qty"><input name="qty" type="text" /></td>
 			    <td id="tr-button">
 			    	<a href="/4413Project/${initParam.paramI}?action=add&id=${item.id}">
 			    	<input type="submit" value='Add New' />

@@ -71,9 +71,16 @@ public class ItemControllerForAdmin extends HttpServlet {
 					flag = true;
 					break;				
 				}
-				case "add": {
-					addToCart(request, response, id);
-					url = base + "cartStructure.jsp";
+				case "add": {					
+					// if current user is admin, add item to inventory
+					if (currentUser.equals("admin@yorku.ca")) {
+						url = base + "listOfItemsStructureForAdmin.jsp";					
+					}					
+					// if current user is customer, add item to shopping cart
+					else {
+						addToCart(request, response, id);
+						url = base + "cartStructure.jsp";
+					}
 					flag = true;
 					break;					
 				}
