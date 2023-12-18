@@ -26,7 +26,6 @@
 
 		<jsp:include page="listOfItemsForAdmin.jsp" flush="true" />
 
-
 	</div>
 
 

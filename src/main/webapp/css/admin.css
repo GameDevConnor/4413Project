@@ -39,6 +39,7 @@ body {
 
 table {
 	border-spacing: 1.5px;
+	text-align: center;
 }
 
 table thead tr {
@@ -49,7 +50,11 @@ table thead tr {
 table thead tr th {
 	margin: 0px;
 	padding: 2px;
-	background-color: rgb(192, 196, 214);
+	background-color: #777da6;
+}
+
+th:nth-child(7), td:nth-child(7) {
+    width: 100px;
 }
 
 table tr {
@@ -59,13 +64,13 @@ table tr {
 	background-color: white;
 }
 
-tr:nth-child(even){
+table tr:nth-child(odd){
 	background-color: rgb(192, 196, 214);
-}
-/*
+} /* for all items */
+
 table tr.classEven {
-	background-color: #777da6;
-}*/
+	background-color: rgb(192, 196, 214);
+} /* for all users */
 
 table tr td,th {
 	padding: 2px;

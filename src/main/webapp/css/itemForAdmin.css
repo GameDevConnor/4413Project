@@ -19,41 +19,12 @@ body {
 	font-family: "Calibri", Georgia, Serif;
 }
 
-table {
-	border-spacing: 1.5px;
-}
-/*
-table thead tr {
-	font-family: Arial, monospace;
-	font-size: 14px;
-}
-
-table thead tr th {
-	margin: 0px;
-	padding: 2px;
-	background-color: rgb(192, 196, 214);
-}
-
-table tr {
-	font-family: arial, monospace;
-	color: black;
-	font-size: 12px;
-	background-color: white;
-}
-
-table tr.classEven {
-	background-color: rgb(192, 196, 214);
-}
-
-table tr td,th {
-	padding: 2px;
-}*/
 
 #th-id, #tr-id > input {
 	width: 30px;
 }
 #th-dsec, #tr-dsec > input {
-	width: 140px;
+	width: 130px;
 }
 
 #th-category, #tr-category > input {
@@ -61,27 +32,25 @@ table tr td,th {
 }
 
 #th-brand, #tr-brand > input, #th-price, #tr-price > input {
-	width: 40px;
+	width: 45px;
 }
 
 #th-name, #tr-name > input {
 	width: 70px;
 }
 
-#th-qty, #tr-qty {
-	width: 100px;
+#tr-qty > form > input {
+	width: 80px;
+	text-align: center;
 }
-
-#tr-qty input {
-	width: 50px;
-}
-/*
-.classEven {
-	background-color: rgb(192, 196, 214);
-}*/
 
 #th-button, #tr-dlt input {
 	width: 75px;
+}
+
+#tr-qtyAdd > #qty{
+	width: 90px;
+	text-align: center;
 }
 
 .buttonAdd {

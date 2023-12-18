@@ -63,7 +63,7 @@
  			    <td id="tr-brand"><input id="brand" type="text" /></td>
 			    <td id="tr-category"><input id="category" type="text" /></td>
 			    <td id="tr-price"><input id="price" type="number" min="0" step="0.01" /></td> 
-			    <td id="tr-qty"><input id="qty" type="number" min="0" step="1"/></td>
+			    <td id="tr-qtyAdd"><input id="qty" type="number" min="0" step="1"/></td>
 			    <td id="tr-buttonAdd">
 			    	<button class="buttonAdd" onclick="insert(this)">Add New</button>
 		    	</td> 	    	
