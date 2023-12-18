@@ -18,8 +18,9 @@
 
 
 
-<% Purchase purchases = (Purchase) session.getAttribute("checkOutCart"); 
-	
+<% 
+
+Purchase purchases = (Purchase) session.getAttribute("purchases"); 	
 Cart cart = (Cart) session.getAttribute("cart");
 cart.clear();
 

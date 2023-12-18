@@ -20,7 +20,7 @@
 			<span class="label" style="margin-left: 15px;">Thank you for shopping <%=username %></span>
 		</div>
 
-		<jsp:include page="cart.jsp" flush="true" />
+		<jsp:include page="checkout.jsp" flush="true" />
  		
 	</div>
 

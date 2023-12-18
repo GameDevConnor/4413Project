@@ -57,6 +57,7 @@ public class ItemControllerForAdmin extends HttpServlet {
 		Boolean flag = true; // flag used to identify if forward dispatcher should be called
 		
 		System.out.println(request.getQueryString());
+
 		
 		if (action != null) {
 			switch (action) {

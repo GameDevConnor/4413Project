@@ -77,7 +77,7 @@ if (totalPrice == 0) {
 else {
 	message = "$" + Float.toString(totalPrice);
 	
-	session.setAttribute("checkOutCart", purchases);
+	session.setAttribute("purchases", purchases);
 }
 
 
