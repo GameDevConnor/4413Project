@@ -57,31 +57,26 @@ public class ItemControllerForAdmin extends HttpServlet {
 		
 		if (action != null) {
 			switch (action) {
-			case "allItems": {
-				findAllItems(request, response);
-
-				
-				
-				// if current user is admin, direct to listOfItemsStructureForAdmin.jsp
-				if (currentUser.equals("admin@yorku.ca")) {
-					url = base + "listOfItemsStructureForAdmin.jsp";					
+				case "allItems": {
+					findAllItems(request, response);
+	
+					// if current user is admin, direct to listOfItemsStructureForAdmin.jsp
+					if (currentUser.equals("admin@yorku.ca")) {
+						url = base + "listOfItemsStructureForAdmin.jsp";					
+					}
+					// if current user is customer, direct to listOfItemsStructure.jsp
+					else {
+						url = base + "listOfItemsStructure.jsp";
+					}
+					flag = true;
+					break;				
 				}
-				// if current user is customer, direct to listOfItemsStructure.jsp
-				else {
-					url = base + "listOfItemsStructure.jsp";
+				case "add": {
+					addToCart(request, response, id);
+					url = base + "cartStructure.jsp";
+					flag = true;
+					break;					
 				}
-				flag = true;
-				break;				
-			}
-			case "add": {
-				addToCart(request, response, id);
-				url = base + "cartStructure.jsp";
-				flag = true;
-				break;
-				
-			}
-			
-			
 			}
 		}
 		
