@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -50,12 +51,24 @@ public class Purchase {
 		this.item = item;
 	}
 	
-	public List<Purchase> getCart() {
-		return this.purchases;
+	public List<Purchase> getPurchases() {
+		return purchases;
 	}
 	
 	 
-	   // Add a Book into this Cart, with qtyOrdered. If the book of id already exists, update the qty ordered
+	   public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public void setPurchases(List<Purchase> purchases) {
+		this.purchases = purchases;
+	}
+
+	// Add a Book into this Cart, with qtyOrdered. If the book of id already exists, update the qty ordered
 	   // if not, create a new book.
 	   public void add(Purchase item) {
 	      

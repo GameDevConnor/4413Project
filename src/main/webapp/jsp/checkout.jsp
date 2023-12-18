@@ -26,12 +26,14 @@ cart.clear();
 
 %>
 
+<% System.out.println("Purchase object: " + purchases); %>
+
 <table border='1' cellpadding='6'>
 
 <tr><th>Item Name</th><th>Item Description</th><th>Item Category</th><th>Item Brand</th><th>Item Price</th><th>Quantity</th></tr>
 
 
-<c:forEach items="${sessionScope.purchases.items}" var="e">
+<c:forEach items="${sessionScope.purchases.purchases}" var="e">
 <tr><td> ${e.item.name} </td>
 <td> ${e.item.description} </td>
 <td> ${e.item.category} </td>
