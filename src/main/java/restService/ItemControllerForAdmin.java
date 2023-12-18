@@ -16,8 +16,12 @@ import javax.servlet.http.HttpSession;
 
 import dao.ItemDAO;
 import dao.ItemDAOImpl;
+import dao.UserDAO;
+import dao.UserDAOImpl;
 import model.Cart;
 import model.Item;
+import model.Purchase;
+import model.User;
 
 /**
  * Servlet implementation class ItemControllerForAdmin
@@ -127,6 +131,7 @@ public class ItemControllerForAdmin extends HttpServlet {
 				}
 				case "checkout": {
 					
+					addPurchasesToDB(request, response);
 					url = base + "checkoutStructure.jsp";					
 					flag = true;
 					break;
@@ -148,6 +153,37 @@ public class ItemControllerForAdmin extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
+	
+	
+	private void addPurchasesToDB(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		
+		try {
+			HttpSession session = request.getSession(true);
+			Purchase purchase;
+		      synchronized (session) {  // synchronized to prevent concurrent updates
+		         // Retrieve the shopping cart for this session, if any. Otherwise, create one.
+		         purchase = (Purchase) session.getAttribute("purchases");
+		         
+		      }
+			// calling DAO method to retrieve a list of all items 
+			ItemDAO itemDao = new ItemDAOImpl();
+			UserDAO userDAO = new UserDAOImpl();
+			
+			for (Purchase individualPurchase : purchase.getPurchases()) {
+				User user = userDAO.searchUsersByKeyword(individualPurchase.getUser());
+				itemDao.purchase(individualPurchase.getItem(), user, individualPurchase.getQuantity());
+			}
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+	}
+	
+	
 	
 	private void findAllItems(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
