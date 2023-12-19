@@ -41,11 +41,10 @@
 			<span class="label" style="margin-left: 15px;">Brands </span>
 			</div>
 			<ul>
-			  <c:forEach items="${brandList}" var="item">		     
+			  <c:forEach items="${brandList}" var="brand">		     
 				<li><a class="label"
-					href="/4413Project/brands?action=brand&brandId=${item.id}&brand=${item.brandDescription}">
-					<span  class="label" style="margin-left: 30px;">
-						${item.brandDescription} </span></a>
+					href="/4413Project/items?action=brandList&brand=${brand}">
+					<span  class="label" style="margin-left: 30px;"> ${brand} </span></a>
 				</li>
               </c:forEach>	
 			</ul>

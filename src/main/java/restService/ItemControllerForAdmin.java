@@ -44,10 +44,11 @@ public class ItemControllerForAdmin extends HttpServlet {
 		// calling DAO method to retrieve category List from Database, for left column display
         ItemDAO itemDao = new ItemDAOImpl();
 		List<String> categoryList = itemDao.findAllCategories();
-		
+		List<String> brandList = itemDao.findAllBrands();
 		
 		ServletContext context = getServletConfig().getServletContext();  
 		context.setAttribute("categoryList", categoryList);
+		context.setAttribute("brandList", brandList);
 	}
 
 
@@ -158,6 +159,14 @@ public class ItemControllerForAdmin extends HttpServlet {
 					// Customer - filter by categoryList 
 					String category = request.getParameter("category");
 					findItemsByCategory(request, response, category);
+					url = base + "listOfItemsStructure.jsp";				
+					flag = true;
+					break;
+				}
+				case "brandList": {
+					// Customer - filter by categoryList 
+					String brand = request.getParameter("brand");
+					findItemsByBrand(request, response, brand);
 					url = base + "listOfItemsStructure.jsp";				
 					flag = true;
 					break;
@@ -302,6 +311,21 @@ public class ItemControllerForAdmin extends HttpServlet {
 			// calling DAO method to search items by catetory 
 			ItemDAO itemDao = new ItemDAOImpl();
 			List<Item> itemList = itemDao.findItemsByCategory(cate);
+
+			request.setAttribute("itemList", itemList);
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+	private void findItemsByBrand(HttpServletRequest request,
+			HttpServletResponse response, String brand)
+			throws ServletException, IOException {
+		try {
+			// calling DAO method to search items by brand 
+			ItemDAO itemDao = new ItemDAOImpl();
+			List<Item> itemList = itemDao.findItemsByBrand(brand);
 
 			request.setAttribute("itemList", itemList);
 

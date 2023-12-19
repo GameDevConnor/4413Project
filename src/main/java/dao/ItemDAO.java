@@ -16,6 +16,10 @@ public interface ItemDAO {
 	
 	public List<Item> findItemsByCategory(String category);
 	
+	public List<String> findAllBrands();
+	
+	public List<Item> findItemsByBrand(String brand);
+	
 	public void insert(Item item, int quantity);
 	
 	public void delete(String itemID);

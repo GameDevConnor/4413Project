@@ -302,4 +302,60 @@ public class ItemDAOImpl implements ItemDAO {
 
 	}
 
+	@Override
+	public List<String> findAllBrands() {
+		List<String> result = new ArrayList<>();
+		String sql = "select DISTINCT brand from Item";
+
+		try {				
+		   	 Class.forName("com.mysql.cj.jdbc.Driver");
+		   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
+		   	 
+		   	 java.sql.Statement statement = connection.createStatement();
+		   	 
+		   	 ResultSet resultSet = statement.executeQuery(sql);
+
+		   	 while (resultSet.next()) {
+				result.add(resultSet.getString("brand"));
+			}
+		   	connection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} 
+		return result;
+	}
+
+	@Override
+	public List<Item> findItemsByBrand(String brand) {
+		List<Item> result = new ArrayList<Item>();		
+		String sql = "select * from Item where brand = '" + brand + "'";
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
+		   	 
+		   	 java.sql.Statement statement = connection.createStatement();
+		   	 
+		   	 ResultSet resultSet = statement.executeQuery(sql); 
+			while (resultSet.next()) {
+				String id = resultSet.getString("id");
+				String name = resultSet.getString("itemName");
+				String description = resultSet.getString("itemDescription");
+				String category = resultSet.getString("category");
+				int quantity = resultSet.getInt("quantity");
+				float price = resultSet.getFloat("price");
+			
+				Item item = new Item(id, name, description, category, brand, quantity, price);
+
+				result.add(item);
+			}
+			connection.close();
+		} catch (SQLException | ClassNotFoundException ex) {
+			ex.printStackTrace();
+		}
+		return result;
+	}
+
 }
