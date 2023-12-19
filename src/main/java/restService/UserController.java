@@ -90,7 +90,7 @@ public class UserController extends HttpServlet {
 					}
 					else if (user.getPassword().equals(password)){
 							request.setAttribute("user", user);
-							url = "/jsp/shoppingMain.jsp";
+							url = "items";
 							flag = true;
 						}
 					else {
