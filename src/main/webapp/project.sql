@@ -63,6 +63,8 @@ CREATE TABLE PO (
 	id INT NOT NULL,
 	customerID VARCHAR(100) NOT NULL,
 	itemID VARCHAR(20) NOT NULL,
+    qtyOrdered INT,
+    totalPrice FLOAT,
 	dateOfPurchase VARCHAR(20) NOT NULL,
 	PRIMARY KEY(id),
 	FOREIGN KEY (customerID) REFERENCES Customer (username),
@@ -70,10 +72,10 @@ CREATE TABLE PO (
 );
 
 /* insert data into PO table*/
-INSERT INTO PO VALUES ("1", 'test1@yorku.ca', 'b001', '2023-12-16 19:23:51');
-INSERT INTO PO VALUES ("2", 'test1@yorku.ca', 'd001', '2023-12-17 10:24:11');
-INSERT INTO PO VALUES ("3", 'test2@yorku.ca', 'c001', '2023-12-17 12:24:32');
-INSERT INTO PO VALUES ("4", 'test3@yorku.ca', 'b001', '2023-12-17 23:22:32');
-INSERT INTO PO VALUES ("5", 'test1@yorku.ca', 'b001', '2023-12-18 19:23:51');
-INSERT INTO PO VALUES ("6", 'test1@yorku.ca', 'b001', '2023-12-18 19:23:51');
-INSERT INTO PO VALUES ("7", 'test1@yorku.ca', 'd001', '2023-12-18 19:23:51');
+INSERT INTO PO VALUES ("1", 'test1@yorku.ca', 'b001', '1', '20.0', '2023-12-16 19:23:51');
+INSERT INTO PO VALUES ("2", 'test1@yorku.ca', 'd001', '2', '3000.0', '2023-12-17 10:24:11');
+INSERT INTO PO VALUES ("3", 'test2@yorku.ca', 'c001', '3', '1500.0', '2023-12-17 12:24:32');
+INSERT INTO PO VALUES ("4", 'test3@yorku.ca', 'b001', '2', '40.0', '2023-12-17 23:22:32');
+INSERT INTO PO VALUES ("5", 'test1@yorku.ca', 'b001', '2', '40.0', '2023-12-18 19:23:51');
+INSERT INTO PO VALUES ("6", 'test1@yorku.ca', 'b001', '3', '60.0', '2023-12-18 19:23:51');
+INSERT INTO PO VALUES ("7", 'test1@yorku.ca', 'd001', '1', '1500.0', '2023-12-18 19:23:51');
