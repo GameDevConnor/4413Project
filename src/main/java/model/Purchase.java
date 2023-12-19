@@ -68,8 +68,8 @@ public class Purchase {
 		this.purchases = purchases;
 	}
 
-	// Add a Book into this Cart, with qtyOrdered. If the book of id already exists, update the qty ordered
-	   // if not, create a new book.
+	// Add a item into this Cart, with qtyOrdered. If the item of id already exists, update the qty ordered
+	   // if not, create a new item.
 	   public void add(Purchase item) {
 	      
 	      purchases.add(item);

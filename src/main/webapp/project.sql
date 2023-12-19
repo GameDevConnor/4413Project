@@ -41,13 +41,13 @@ St.', 'ON', 'Canada', 'K3C 9T5' ,'416-123-9568');
 
 /*create a customer table*/
 CREATE TABLE Customer ( 
-username VARCHAR(100) NOT NULL, 
-pass VARCHAR(100) NOT NULL,
-firstName VARCHAR(100) NOT NULL, 
-lastName VARCHAR(20) NOT NULL, 
-addressID INT NOT NULL, 
-PRIMARY KEY(username),
-FOREIGN KEY (addressID) REFERENCES Address (id)
+	username VARCHAR(100) NOT NULL, 
+	pass VARCHAR(100) NOT NULL,
+	firstName VARCHAR(100) NOT NULL, 
+	lastName VARCHAR(20) NOT NULL, 
+	addressID INT NOT NULL, 
+	PRIMARY KEY(username),
+	FOREIGN KEY (addressID) REFERENCES Address (id)
 );
 
 /* insert data into customer table*/
@@ -79,3 +79,18 @@ INSERT INTO PO VALUES ("4", 'test3@yorku.ca', 'b001', '2', '40.0', '2023-12-17 2
 INSERT INTO PO VALUES ("5", 'test1@yorku.ca', 'b001', '2', '40.0', '2023-12-18 19:23:51');
 INSERT INTO PO VALUES ("6", 'test1@yorku.ca', 'b001', '3', '60.0', '2023-12-18 19:23:51');
 INSERT INTO PO VALUES ("7", 'test1@yorku.ca', 'd001', '1', '1500.0', '2023-12-18 19:23:51');
+
+/*create a CreditCard table*/
+CREATE TABLE CreditCard ( 
+	ccNum VARCHAR(100) NOT NULL, 
+	cvv VARCHAR(3) NOT NULL,
+	expiryDate VARCHAR(100) NOT NULL, 
+    customerID VARCHAR(100) NOT NULL,
+	PRIMARY KEY(ccNum),
+    FOREIGN KEY (customerID) REFERENCES Customer (username)
+);
+
+/* insert data into CreditCard table*/
+INSERT INTO CreditCard VALUES ("1111222233334444", '111', '2023-08', 'test1@yorku.ca');
+INSERT INTO CreditCard VALUES ("2111222233334444", '222', '2024-09', 'test2@yorku.ca');
+INSERT INTO CreditCard VALUES ("3111222233334444", '333', '2025-10', 'test3@yorku.ca');
