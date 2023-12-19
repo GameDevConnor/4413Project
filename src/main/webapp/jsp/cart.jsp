@@ -16,38 +16,31 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 
-
-
 <% Cart cart = (Cart) session.getAttribute("cart"); %>
 
 <table border='1' cellpadding='6'>
-
-<tr><th>Item Name</th><th>Item Description</th><th>Item Category</th><th>Item Brand</th><th>Item Price</th><th>Quantity</th></tr>
-
-
-<form method='get' action='ItemControllerForAdmin'>
-
-<input type='hidden' size='3' name='action' value='add' />
-
-<c:forEach items="${sessionScope.cart.items}" var="e">
-<tr><td> ${e.name} </td>
-<td> ${e.description} </td>
-<td> ${e.category} </td>
-<td> ${e.brand} </td>
-<td> ${e.price} </td>
-
-<td><input type='input' size='5' value='${param[e.id]}' name='${e.id}'/></td>
-
-
-</c:forEach>
+	<tr><th>Item Name</th><th>Item Description</th><th>Item Category</th><th>Item Brand</th><th>Item Price</th><th>Quantity</th></tr>
+	
+	<c:forEach items="${sessionScope.cart.items}" var="e">
+		<tr>
+			<td> ${e.name} </td>
+			<td> ${e.description} </td>
+			<td> ${e.category} </td>
+			<td> ${e.brand} </td>
+			<td> ${e.price} </td>
+			
+			<td>
+				<form method='get' action='items'>
+					<input type='hidden' size='3' name='action' value='add' />
+					<input type='hidden' name='id' value='${e.id}' />
+					<input type='number' size='5' min='0' step='1' name='qty${e.id}' value='${e.quantity}'/>
+					 <input type='submit' value='update' />
+				</form>
+			</td>
+		</tr>
+	</c:forEach>
 
 </table><br /><br />
-
- <input type='submit' value='Update' />
- 
- </form>
-
-
 <%   
 
 float totalPrice = 0;

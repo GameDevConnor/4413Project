@@ -122,9 +122,10 @@ button {
 }
 
 .backButton {
-	position: fixed; 
-	top: 80px; 
-	width: 80px;
+	position: fixed;
+	top: 80px;
+	right: 100px;
+	width: 100px;
 	text-align: center;
     transform: translateY(-50%); /* Center the button vertically */
     border: none;

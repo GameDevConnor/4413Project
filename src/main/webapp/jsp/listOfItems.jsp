@@ -46,7 +46,8 @@
 		    	</td> 
 
 				<td>
-			    	<a href="/4413Project/${initParam.paramI}?action=add&id=${item.id}">
+			    	<!-- <a href="/4413Project/${initParam.paramI}?action=add&id=${item.id}"> -->
+			    	<a href="/4413Project/${initParam.paramI}?action=add&id=${item.id}&qty${item.id}=1">
 			    	<input type="submit" value='Add To Cart' />
 			    	</a>
 		    	</td> 	    	

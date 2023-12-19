@@ -79,9 +79,14 @@ public class ItemControllerForAdmin extends HttpServlet {
 					flag = true;
 					break;				
 				}
-				case "add": {										
+				case "add": {			
+					// Customer - Add item to cart, default qty is 1
+					System.out.println("Update id: " + id);
+					// Get qty from input and update cart
+					int qtyNew = Integer.parseInt(request.getParameter("qty" + id));
+					System.out.println("Update id: " + id + " qty: " + qtyNew);
 					// current user is customer, add item to shopping cart
-					addToCart(request, response, id);
+					addToCart(request, response, id, qtyNew);
 					url = base + "cartStructure.jsp";
 
 					flag = true;
@@ -200,7 +205,7 @@ public class ItemControllerForAdmin extends HttpServlet {
 	}
 	
 	private void addToCart(HttpServletRequest request,
-			HttpServletResponse response, String id) throws ServletException, IOException {
+			HttpServletResponse response, String id, int newQTY) throws ServletException, IOException {
 		// list all items for admin management
 		try {
 			HttpSession session = request.getSession(true);
@@ -216,8 +221,11 @@ public class ItemControllerForAdmin extends HttpServlet {
 			// calling DAO method to retrieve a list of all items 
 			ItemDAO itemDao = new ItemDAOImpl();
 			Item item = itemDao.findItemById(id);
-			if (!cart.containsItem(item.getId())) {
+			if (!cart.containsItem(id)) {
 				cart.add(item);
+			}
+			else {
+				cart.update(id, newQTY);
 			}
 //			cart.add(item);
             session.setAttribute("cart", cart);  // Save it into session
