@@ -185,10 +185,11 @@ public class ItemDAOImpl implements ItemDAO {
 	   	 while (resultSet.next()) {
 			id = resultSet.getInt("id");
 		 }
+	   	 
+	   	 float totalPrice = item.getPrice() * quantity;
+	   	 PurchaseOrder po = new PurchaseOrder(id + 1, user, item, quantity, totalPrice);
 
-	   	 PurchaseOrder po = new PurchaseOrder(id + 1, user, item, quantity);
-
-	   	 String insertItemQueryString = "insert into po values ('" + po.getId() + "','" + po.getUser().getUsername() + "','" + po.getItem().getId() + "','" + po.getDateOfCreation().toString() + "');";
+	   	 String insertItemQueryString = "insert into po values ('" + po.getId() + "','" + po.getUser().getUsername() + "','" + po.getItem().getId() + "','" + quantity + "','" + totalPrice + "','" + po.getDateOfCreation().toString() + "');";
 		 
 		 Statement insertStatement = connection.createStatement();
 	   	 

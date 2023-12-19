@@ -8,18 +8,20 @@ public class PurchaseOrder {
 	User user;
 	Item item;
 	int qtyOrdered;
+	float totalPrice;
 	String dateOfCreation;
 	
 	public PurchaseOrder() {
 		dateOfCreation = new Date().toString();
 	}
 
-	public PurchaseOrder(int id, User user, Item item, int qty) {
+	public PurchaseOrder(int id, User user, Item item, int qty, float totalPrice) {
 		
 		this.id = id;
 		this.user = user;
 		this.item = item;
 		this.qtyOrdered = qty;
+		this.totalPrice = totalPrice;
 		dateOfCreation = new Date().toString();
 	}
 
@@ -63,6 +65,12 @@ public class PurchaseOrder {
 		this.qtyOrdered = qtyOrdered;
 	}
 
-	
+	public float getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(float totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 
 }

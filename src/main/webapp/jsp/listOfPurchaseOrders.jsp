@@ -40,7 +40,7 @@
  			    <td id="tr-lastName">${po.user.lastName}</td>
 			    <td id="tr-iName">${po.item.name}</td>
 			    <td id="tr-qty">${po.qtyOrdered}</td>
-				<td id="tr-price">${po.item.price}</td>	
+				<td id="tr-price">${po.totalPrice}</td>	
 			    <td id="tr-date">${po.dateOfCreation}</td> 			    			    	
 			</tr>   
            </c:forEach>	
