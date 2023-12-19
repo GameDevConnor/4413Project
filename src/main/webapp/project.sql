@@ -65,7 +65,7 @@ CREATE TABLE PO (
 	itemID VARCHAR(20) NOT NULL,
     qtyOrdered INT,
     totalPrice FLOAT,
-	dateOfPurchase VARCHAR(20) NOT NULL,
+	dateOfPurchase VARCHAR(100) NOT NULL,
 	PRIMARY KEY(id),
 	FOREIGN KEY (customerID) REFERENCES Customer (username),
 	FOREIGN KEY (itemID) REFERENCES Item (id)
