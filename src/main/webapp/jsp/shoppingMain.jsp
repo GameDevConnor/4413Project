@@ -78,7 +78,7 @@
         	
     		var xhttp = new XMLHttpRequest(); // create XMLHttpRequestObject
     		 
-    		var url = "GetItemData";
+    		var url = "/4413Project/GetItemData";
     		var data='?a=' + productId;
     		data += "&comm=ajax";
     		

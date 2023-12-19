@@ -53,7 +53,7 @@
 		</li>
 	</ul>
 	
-	<form class="search">
+	<form class="search" action="/4413Project/items">
 		Search: 
 		<input type="hidden" name="action" value="search" /> 
 		<input id="text" type="text" name="keyWord" size="12" /> 
