@@ -24,8 +24,8 @@
 				<th id="th-brand">Brand</th>
 				<th id="th-category">Category</th>
 				<th id="th-price">Price</th>		
-				<th id="th-qty">Quantity</th>			
-				<th id="th-button"></th>	
+				<th id="th-qty">QuantityInStock</th>			
+				<!-- <th id="th-button"></th> -->	
 				<th id="th-button2"></th>	
 			</tr>
 		</thead>
@@ -38,12 +38,11 @@
 			    <td>${item.category}</td>
 			    <td>${item.price}</td> 
 			    <td>${item.quantity}</td>
-			    <td>
+			    <!-- <td>
 			    	<a href="/4413Project/${initParam.paramI}?action=review&id=${item.id}">
-			    	<!-- <input type="submit" value='Review/Update' /> -->
 			    	<input type="submit" value='View Details' />
 			    	</a>
-		    	</td> 
+		    	</td>  -->
 
 				<td>
 			    	<a href="/4413Project/${initParam.paramI}?action=add&id=${item.id}">
