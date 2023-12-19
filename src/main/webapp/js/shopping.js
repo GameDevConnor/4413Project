@@ -10,7 +10,7 @@
             }
             $(this).next().slideToggle(300);
         });
-        $('#menu ul:eq(0)').show();
+        $('#menu ul').show();
  
     });
 	

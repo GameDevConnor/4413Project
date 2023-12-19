@@ -27,7 +27,7 @@ body {
 
 .leftbar {
 	float: left;
-	height: 310px;
+	height: 400px;
 	width: 150px;
 	background: #FFFFFF;
 	border: 1px solid rgb(192, 196, 214);
@@ -169,7 +169,7 @@ div.message {
 #menu ul {
 	list-style: none;
 	padding: 10px 0 0 0;
-	display: inline-block;
+	display: none;
 }
 
 #menu ul li {
