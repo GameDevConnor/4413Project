@@ -20,7 +20,7 @@
 	<table id="grid">
 		<thead>
 			<tr>
-				<th id="th-id">PO ID</th>
+				<th id="th-id">ID</th>
 				<th id="th-username">Username</th>
 				<th id="th-firstName">First Name</th>
 				<th id="th-lastName">Last Name</th>		

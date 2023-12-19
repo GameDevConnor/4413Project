@@ -1,6 +1,7 @@
 package restService;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -9,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ItemDAO;
 import dao.ItemDAOImpl;
@@ -35,9 +37,14 @@ public class PurchaseOrderControllerForAdmin extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String base = "/jsp/";
-		String url = base + "listOfPurchaseOrdersStructure.jsp";
 		
+		
+		// Retrieve current signed in user's username
+		HttpSession session = request.getSession(true);
+		String currentUser = (String) session.getAttribute("currentUser");
+		
+		String base = "/jsp/";
+		String url = base + "listOfPurchaseOrdersStructure.jsp";	
 		String action = request.getParameter("action");
 		Boolean flag = true; // flag used to identify if forward dispatcher should be called
 		
@@ -46,9 +53,9 @@ public class PurchaseOrderControllerForAdmin extends HttpServlet {
 		if (action != null) {
 			switch (action) {
 				case "allItems": {
-					findAllPurchaseOrders(request, response);					
+					findAllPurchaseOrders(request, response);	
 					flag = true;
-					break;				
+					break;	
 				}
 			}
 		}
@@ -74,6 +81,20 @@ public class PurchaseOrderControllerForAdmin extends HttpServlet {
 			// calling DAO method to retrieve a list of all purchase orders 
 			PurchaseOrderDAOImpl poDao = new PurchaseOrderDAOImpl();
 			List<PurchaseOrder> poList = poDao.findAllPurchaseOrders();
+			request.setAttribute("poList", poList);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+	}
+	
+	private void findAllPurchaseOrdersByUsername(HttpServletRequest request,
+			HttpServletResponse response, String currentUser) throws ServletException, IOException {
+		// list all purchase orders for current customer
+		try {
+			// calling DAO method to retrieve a list of all purchase orders 
+			PurchaseOrderDAOImpl poDao = new PurchaseOrderDAOImpl();
+			List<PurchaseOrder> poList = poDao.findAllPurchaseOrdersByUsername(currentUser);
 			request.setAttribute("poList", poList);
 		} catch (Exception e) {
 			e.printStackTrace();

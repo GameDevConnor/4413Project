@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.PurchaseOrderDAOImpl;
 import dao.UserDAO;
 import dao.UserDAOImpl;
 import model.Address;
+import model.PurchaseOrder;
 import model.User;
 
 /**
@@ -59,7 +61,8 @@ public class CustomerControllerForAdmin extends HttpServlet {
 				break;
 			case "review": {
 				System.out.println("review " + username);
-				searchUsersByKeyword(request, response, username);				
+				searchUsersByKeyword(request, response, username);		
+				findAllPurchaseOrdersByUsername(request, response, username);	
 				url = base + "customerInfo.jsp";
 				flag = true;
 				break;
@@ -233,5 +236,18 @@ public class CustomerControllerForAdmin extends HttpServlet {
 		}
 	}
 	
+	private void findAllPurchaseOrdersByUsername(HttpServletRequest request,
+			HttpServletResponse response, String currentUser) throws ServletException, IOException {
+		// list all purchase orders for current customer
+		try {
+			// calling DAO method to retrieve a list of all purchase orders 
+			PurchaseOrderDAOImpl poDao = new PurchaseOrderDAOImpl();
+			List<PurchaseOrder> poList = poDao.findAllPurchaseOrdersByUsername(currentUser);
+			request.setAttribute("poList", poList);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+	}
 
 }
