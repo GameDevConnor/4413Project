@@ -79,8 +79,13 @@ public class ItemControllerForAdmin extends HttpServlet {
 					flag = true;
 					break;				
 				}
+				case "search":
+					searchItems(request, response, keyWord);
+					url = base + "searchItemResult.jsp";
+					break;
+
 				case "add": {										
-					// current user is customer, add item to shopping cart
+					// Customer - add item to shopping cart
 					addToCart(request, response, id);
 					url = base + "cartStructure.jsp";
 
@@ -130,7 +135,7 @@ public class ItemControllerForAdmin extends HttpServlet {
 					break;					
 				}
 				case "checkout": {
-					
+					// Customer - check out items and update db PO 
 					addPurchasesToDB(request, response);
 					url = base + "checkoutStructure.jsp";					
 					flag = true;
@@ -198,6 +203,23 @@ public class ItemControllerForAdmin extends HttpServlet {
 			System.out.println(e);
 		}
 	}
+	
+	//search item by keyword
+	private void searchItems(HttpServletRequest request,
+			HttpServletResponse response, String keyWord)
+			throws ServletException, IOException {
+		try {
+			// calling DAO method to search book by keyword 
+			ItemDAO itemDao = new ItemDAOImpl();
+			List<Item> itemList = itemDao.searchItemByKeywords(keyWord);
+			request.setAttribute("itemList", itemList);
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+
 	
 	private void addToCart(HttpServletRequest request,
 			HttpServletResponse response, String id) throws ServletException, IOException {
