@@ -7,17 +7,19 @@ public class PurchaseOrder {
 	int id;
 	User user;
 	Item item;
+	int qtyOrdered;
 	String dateOfCreation;
 	
 	public PurchaseOrder() {
 		dateOfCreation = new Date().toString();
 	}
 
-	public PurchaseOrder(int id, User user, Item item) {
+	public PurchaseOrder(int id, User user, Item item, int qty) {
 		
 		this.id = id;
 		this.user = user;
 		this.item = item;
+		this.qtyOrdered = qty;
 		dateOfCreation = new Date().toString();
 	}
 
@@ -53,7 +55,14 @@ public class PurchaseOrder {
 		this.item = item;
 	}
 	
-	
+	public int getQtyOrdered() {
+		return qtyOrdered;
+	}
+
+	public void setQtyOrdered(int qtyOrdered) {
+		this.qtyOrdered = qtyOrdered;
+	}
+
 	
 
 }

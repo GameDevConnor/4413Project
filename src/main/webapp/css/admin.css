@@ -92,6 +92,13 @@ table tr td,th {
 	background-color: #777da6;
 }*/
 
+fieldset {
+    border: none; 
+}
+.creditCard {
+	position: relative;
+}
+
 a:link {
 	font-family: arial, monospace;
 	text-decoration: none;

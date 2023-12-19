@@ -186,7 +186,7 @@ public class ItemDAOImpl implements ItemDAO {
 			id = resultSet.getInt("id");
 		 }
 
-	   	 PurchaseOrder po = new PurchaseOrder(id + 1, user, item);
+	   	 PurchaseOrder po = new PurchaseOrder(id + 1, user, item, quantity);
 
 	   	 String insertItemQueryString = "insert into po values ('" + po.getId() + "','" + po.getUser().getUsername() + "','" + po.getItem().getId() + "','" + po.getDateOfCreation().toString() + "');";
 		 

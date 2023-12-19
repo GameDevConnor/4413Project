@@ -32,7 +32,7 @@ public class PurchaseOrderDAOImpl implements PurchaseOrderDAO {
 			int id = resultSet.getInt("id");
 			String username = resultSet.getString("customerID");
 			String itemID = resultSet.getString("itemID");
-			//List<String> itemID = resultSet.getString("itemID");
+			int qtyOrdered = resultSet.getInt("qtyOrdered");
 			String dateOfPurchase = resultSet.getString("dateOfPurchase");
 			
 			// calling DAO method to find current user 
@@ -41,10 +41,8 @@ public class PurchaseOrderDAOImpl implements PurchaseOrderDAO {
 			// calling DAO method to find purchased item			
 			ItemDAO itemDao = new ItemDAOImpl();
 			Item item = itemDao.findItemById(itemID);					
-			
-			//List<Item> itemList = itemDao.findItemById(itemID);
 		
-			PurchaseOrder po = new PurchaseOrder(id, user, item);
+			PurchaseOrder po = new PurchaseOrder(id, user, item, qtyOrdered);
 			po.setDateOfCreation(dateOfPurchase);
 			pos.add(po);
 		}
@@ -75,7 +73,7 @@ List<PurchaseOrder> pos = new ArrayList<PurchaseOrder>();
 	   	 while (resultSet.next()) {
 			int id = resultSet.getInt("id");
 			String itemID = resultSet.getString("itemID");
-			//List<String> itemID = resultSet.getString("itemID");
+			int qtyOrdered = resultSet.getInt("qtyOrdered");
 			String dateOfPurchase = resultSet.getString("dateOfPurchase");
 			
 			// calling DAO method to find current user 
@@ -85,7 +83,7 @@ List<PurchaseOrder> pos = new ArrayList<PurchaseOrder>();
 			ItemDAO itemDao = new ItemDAOImpl();
 			Item item = itemDao.findItemById(itemID);					
 		
-			PurchaseOrder po = new PurchaseOrder(id, user, item);
+			PurchaseOrder po = new PurchaseOrder(id, user, item, qtyOrdered);
 			po.setDateOfCreation(dateOfPurchase);
 			pos.add(po);
 		}
