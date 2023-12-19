@@ -78,7 +78,7 @@
    	
    	<fieldset>
 	<form class="creditCard">
-	   	<c:if test="${cart != null}">   		
+	   	<c:if test="${cart != null&& !cart.isEmpty()}">   		
 	   		<p><b>Please enter your credit card info before checking out:</b></p>
 		    <p>
 		        <label for="creditCardNumber">Card Number: </label>

@@ -150,7 +150,7 @@ public class ItemControllerForAdmin extends HttpServlet {
 				}
 				case "checkout": {
 					// Customer - check out items and update db PO 
-					addPurchasesToDB(request, response);
+					addPurchasesToDB(request, response);					
 					url = base + "checkoutStructure.jsp";					
 					flag = true;
 					break;
