@@ -28,11 +28,10 @@
 				<span class="label" style="margin-left: 15px;">Categories </span>
 			</div>
 			<ul>
-			  <c:forEach items="${categoryList}" var="item">		     
+			  <c:forEach items="${categoryList}" var="category">		     
 				<li><a class="label"
-					href="/4413Project/categories?action=category&categoryId=${item.id}&category=${item.categoryDescription}">
-					<span  class="label" style="margin-left: 30px;">
-						${item.categoryDescription} </span></a>
+					href="/4413Project/items?action=categoryList&category=${category}">
+					<span  class="label" style="margin-left: 30px;"> ${category} </span></a>
 				</li>
               </c:forEach>	
 			</ul>

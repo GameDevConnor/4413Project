@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,8 +37,19 @@ public class ItemControllerForAdmin extends HttpServlet {
      */
     public ItemControllerForAdmin() {
         super();
-        // TODO Auto-generated constructor stub
     }
+    
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+		// calling DAO method to retrieve category List from Database, for left column display
+        ItemDAO itemDao = new ItemDAOImpl();
+		List<String> categoryList = itemDao.findAllCategories();
+		
+		
+		ServletContext context = getServletConfig().getServletContext();  
+		context.setAttribute("categoryList", categoryList);
+	}
+
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -138,6 +151,14 @@ public class ItemControllerForAdmin extends HttpServlet {
 					// Customer - check out items and update db PO 
 					addPurchasesToDB(request, response);
 					url = base + "checkoutStructure.jsp";					
+					flag = true;
+					break;
+				}
+				case "categoryList": {
+					// Customer - filter by categoryList 
+					String category = request.getParameter("category");
+					findItemsByCategory(request, response, category);
+					url = base + "listOfItemsStructure.jsp";				
 					flag = true;
 					break;
 				}
@@ -273,5 +294,21 @@ public class ItemControllerForAdmin extends HttpServlet {
 			e.printStackTrace();
 		}		
 	}
+	
+	private void findItemsByCategory(HttpServletRequest request,
+			HttpServletResponse response, String cate)
+			throws ServletException, IOException {
+		try {
+			// calling DAO method to search items by catetory 
+			ItemDAO itemDao = new ItemDAOImpl();
+			List<Item> itemList = itemDao.findItemsByCategory(cate);
+
+			request.setAttribute("itemList", itemList);
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
 
 }

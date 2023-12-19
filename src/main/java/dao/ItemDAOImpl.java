@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Address;
+import model.Category;
 import model.Item;
 import model.PurchaseOrder;
 import model.User;
@@ -229,12 +230,76 @@ public class ItemDAOImpl implements ItemDAO {
 
 	                item = new Item(id, name, description, category, brand, quantity, price);
 	            }
-
+	            connection.close();
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
 
 	        return item;
 	    }
+
+	@Override
+	public List<String> findAllCategories() {
+		List<String> result = new ArrayList<>();
+		String sql = "select DISTINCT category from Item";
+
+		try {				
+		   	 Class.forName("com.mysql.cj.jdbc.Driver");
+		   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
+		   	 
+		   	 java.sql.Statement statement = connection.createStatement();
+		   	 
+		   	 ResultSet resultSet = statement.executeQuery(sql);
+
+		   	 while (resultSet.next()) {
+				//Category category = new Category();
+				
+				// populate category bean with needed info
+				//category.setId(resultSet.getLong("id"));
+				//category.setCategoryDescription(resultSet.getString("category_description"));
+
+				result.add(resultSet.getString("category"));
+			}
+		   	connection.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} 
+		return result;
+
+	}
+
+	@Override
+	public List<Item> findItemsByCategory(String category) {
+		List<Item> result = new ArrayList<Item>();		
+		String sql = "select * from Item where category = '" + category + "'";
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		   	 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectdb","root","EECS4413");
+		   	 
+		   	 java.sql.Statement statement = connection.createStatement();
+		   	 
+		   	 ResultSet resultSet = statement.executeQuery(sql); 
+			while (resultSet.next()) {
+				String id = resultSet.getString("id");
+				String name = resultSet.getString("itemName");
+				String description = resultSet.getString("itemDescription");
+				String brand = resultSet.getString("brand");
+				int quantity = resultSet.getInt("quantity");
+				float price = resultSet.getFloat("price");
+			
+				Item item = new Item(id, name, description, category, brand, quantity, price);
+
+				result.add(item);
+			}
+			connection.close();
+		} catch (SQLException | ClassNotFoundException ex) {
+			ex.printStackTrace();
+		}
+		return result;
+
+	}
 
 }

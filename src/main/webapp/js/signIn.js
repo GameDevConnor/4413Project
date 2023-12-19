@@ -20,7 +20,7 @@ function validate() {
 
 	// Servlet: check credentials in DB and update the action
     document.forms["signinForm"].action="/4413Project/SignIn";
-    document.forms["signinForm"].method="get";
+    document.forms["signinForm"].method="post";
     
 
   }  // validate various form components
