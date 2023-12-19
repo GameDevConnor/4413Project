@@ -7,10 +7,10 @@ public class PurchaseOrder {
 	int id;
 	User user;
 	Item item;
-	Date dateOfCreation;
+	String dateOfCreation;
 	
 	public PurchaseOrder() {
-		dateOfCreation = new Date();
+		dateOfCreation = new Date().toString();
 	}
 
 	public PurchaseOrder(int id, User user, Item item) {
@@ -18,14 +18,14 @@ public class PurchaseOrder {
 		this.id = id;
 		this.user = user;
 		this.item = item;
-		dateOfCreation = new Date();
+		dateOfCreation = new Date().toString();
 	}
 
-	public Date getDateOfCreation() {
+	public String getDateOfCreation() {
 		return dateOfCreation;
 	}
 
-	public void setDateOfCreation(Date dateOfCreation) {
+	public void setDateOfCreation(String dateOfCreation) {
 		this.dateOfCreation = dateOfCreation;
 	}
 

@@ -33,7 +33,7 @@ public class PurchaseOrderDAOImpl implements PurchaseOrderDAO {
 			String username = resultSet.getString("customerID");
 			String itemID = resultSet.getString("itemID");
 			//List<String> itemID = resultSet.getString("itemID");
-			Date dateOfPurchase = resultSet.getDate("dateOfPurchase");
+			String dateOfPurchase = resultSet.getString("dateOfPurchase");
 			
 			// calling DAO method to find current user 
 			UserDAO userDao = new UserDAOImpl();
@@ -76,7 +76,7 @@ List<PurchaseOrder> pos = new ArrayList<PurchaseOrder>();
 			int id = resultSet.getInt("id");
 			String itemID = resultSet.getString("itemID");
 			//List<String> itemID = resultSet.getString("itemID");
-			Date dateOfPurchase = resultSet.getDate("dateOfPurchase");
+			String dateOfPurchase = resultSet.getString("dateOfPurchase");
 			
 			// calling DAO method to find current user 
 			UserDAO userDao = new UserDAOImpl();
