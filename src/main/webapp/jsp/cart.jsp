@@ -25,7 +25,7 @@
 <tr><th>Item Name</th><th>Item Description</th><th>Item Category</th><th>Item Brand</th><th>Item Price</th><th>Quantity</th></tr>
 
 
-<form method='get' action='ItemControllerForAdmin'>
+<form method='get' action='items'>
 
 <input type='hidden' size='3' name='action' value='add' />
 
