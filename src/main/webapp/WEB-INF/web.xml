@@ -20,7 +20,7 @@
   </context-param>
   <context-param>
     <param-name>paramPO</param-name>
-    <param-value>purchase</param-value>
+    <param-value>purchaseOrders</param-value>
   </context-param>
   <context-param>
     <param-name>imageURL</param-name>
@@ -78,5 +78,15 @@
   <servlet-mapping>
     <servlet-name>ItemControllerForAdmin</servlet-name>
     <url-pattern>/ItemControllerForAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PurchaseOrderControllerForAdmin</display-name>
+    <servlet-name>PurchaseOrderControllerForAdmin</servlet-name>
+    <servlet-class>restService.PurchaseOrderControllerForAdmin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PurchaseOrderControllerForAdmin</servlet-name>
+    <url-pattern>/PurchaseOrderControllerForAdmin</url-pattern>
   </servlet-mapping>
 </web-app>
