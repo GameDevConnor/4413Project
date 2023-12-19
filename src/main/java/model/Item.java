@@ -7,8 +7,9 @@ public class Item {
 	String description;
 	String category;
 	String brand;
-	int quantity;
+	int quantity; // quantity in stock
 	float price;
+	int orderedQty;
 	
 	public Item(String id, String name, String description, String category, String brand, int quantity, float price) {
 		this.id = id;

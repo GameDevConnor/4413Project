@@ -89,4 +89,14 @@
     <servlet-name>PurchaseOrderControllerForAdmin</servlet-name>
     <url-pattern>/PurchaseOrderControllerForAdmin</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>cartControllerForCustomer</display-name>
+    <servlet-name>cartControllerForCustomer</servlet-name>
+    <servlet-class>restService.cartControllerForCustomer</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cartControllerForCustomer</servlet-name>
+    <url-pattern>/cartControllerForCustomer</url-pattern>
+  </servlet-mapping>
 </web-app>
